@@ -2,9 +2,8 @@
 
  - Introduction to React State
  - Component Lifecycle
- - Callback Functions
- - Functional React Components
- - The useState Hook
- - The useEffect Hook
- - The useRef Hook
- - Custom Hooks | Optional
+ - Introduction to React Hooks and functional components
+ - Building Dynamic Components using State   <!-- Todo ListForm Elements in React -->
+ - Collecting Form Data from User
+ - Controlled Form Components
+
