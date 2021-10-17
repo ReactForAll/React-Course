@@ -1,9 +1,10 @@
 # Milestones
 
- - Form Elements in React
- - Collecting Form Data from User
- - Controlled Form Components
+ - Callback Functions
  - Common Pitfalls in State Management
  - Generic handleChange Functions
- - Rendering Preview from State
+ - The useEffect Hook - Timeout
+ - The useRef Hook
+ - Custom Hooks | Optional
+
 
