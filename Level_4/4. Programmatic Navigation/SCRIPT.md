@@ -1,4 +1,4 @@
-We know that when we load a certain url, we can use our router to render a component based on the url. Now how would we change the URL from our code (Not from an a href link).
+In the previos lesson we've learned to use the path in the URL to render our component accordingly. What about when we need to change the Component, this means that we need to update the URL and  In order to use this we need to programattically update the URL that we have opened. Now how would we change the URL from our code (Not from an a href link).
 
 We can use the `navigate` function from `hookrouter` to take care of this!
 

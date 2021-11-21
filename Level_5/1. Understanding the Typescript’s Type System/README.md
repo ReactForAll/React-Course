@@ -17,12 +17,16 @@ Character (char) -> Character (a-zA-Z0-1!@...) | at least 8 bits
 #### Primitive Data Types in Javascript
 The base data types available in Javascript are 
 
-    undefined : typeof instance === "undefined"
-    Boolean : typeof instance === "boolean"
-    Number : typeof instance === "number"
-    String : typeof instance === "string"
-    BigInt : typeof instance === "bigint"
-    Symbol : typeof instance === "symbol"
+    undefined : typeof instance === "undefined" | undefined
+    Boolean : typeof instance === "boolean" | true or false
+    Number : typeof instance === "number" | 3.14
+    String : typeof instance === "string" | "Hello World"
+
+#### Object Data Types in Javascript
+The base data types available in Javascript are 
+
+    Object : typeof instance === "object" | {id:1, name:"John Doe"}
+    Array : typeof instance === "object" && instance instanceof Array | [1,2,3]
 
 ## Static and Dynamic Typing
 

@@ -1,0 +1,1 @@
+The useReducer Hook is a React Hook that lets you manage the state of a React application using a reducer. It enforces the action reducer pattern and lets you easily manage the state of larger applications.
