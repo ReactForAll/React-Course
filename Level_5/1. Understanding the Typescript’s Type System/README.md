@@ -38,4 +38,4 @@ High Runtime Errors: We've observer a very high frequency of Runtime Tyoe Errors
 Extra Reading: [Static Typing Where Possible, Dynamic Typing When Needed:
 The End of the Cold War Between Programming Languages](https://www.ics.uci.edu/~lopes/teaching/inf212W12/readings/rdl04meijer.pdf)
 
-As you'll learn later in this course, Typescript helps you achieve this golden middle way between dynamically and statically typed languages.
+As you'll learn later in this course, Typescript helps you achieve this golden middle ground between dynamically and statically typed languages.

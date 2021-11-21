@@ -1,0 +1,1 @@
+Type Inference is a feature of typescript that allows typescript to infer the type without the need for explicit annotation
