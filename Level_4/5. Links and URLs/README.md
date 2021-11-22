@@ -8,7 +8,7 @@ If you want to create an anchor tag, you can use the `<A>` component from the 'h
     <A href="/">Home</A>
 ```
 
-This would mimic an `<a>` tag in the dom, but override the default behavior of loading the new URL as a new page, and instead updates the URL and requests the router to re-render the app based on the new URL.
+This would mimic an `<a>` tag in the dom, but overrides the default behavior of loading the new URL as a new page, and instead updates the URL and requests the router to re-render the app based on the new URL.
 
 You can also use the `setLinkProps` helper function from the 'hookrouter' library to create your own custom component that works as a link. 
 
