@@ -41,37 +41,6 @@ type Direction= "UP"|"DOWN"
 
 You can use unions to define your own set of allowed values, thereby allowing you to create your own types like `enum`s
 
-### Discriminated unions
-
-Interfaces open the door for creating much more precise union types known as "Discriminated Unions". Discriminated Unions allow you to create types that contain multiple types of objects, that are discriminated by a common attribute
-
-```js
- interface Circle {
-    kind: "circle";
-    radius: number;
-  }
-   
-  interface Square {
-    kind: "square";
-    sideLength: number;
-  }
-   
-  type Shape = Circle | Square;
-
-  function getArea(shape: Shape) {
-    switch (shape.kind) {
-      case "circle":
-        return Math.PI * shape.radius ** 2;
-                          
-      case "square":
-        return shape.sideLength ** 2;
-                
-    }
-  }
-```
-
-Here the type `Shape` is discriminated by the property `kind`. You can see that Typescript is able to understand that the type of a `Shape` instance is either circle or square with an `if` or `switch` check. This allows you to make much more precise types and therefore build better type-safety in your projects.
-
 ### The “any” Type
 
 In typescript, you can use the `any` type to represent a variable that can hold any type of value. Now this is a very dangerous proposition. Because if you imagine a variable that can hold any type of value, typescript can't provide any kind of type safety. Now that's almost like asking typescript to act like Javascript!

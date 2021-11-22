@@ -4,24 +4,21 @@ For Instance, if you have a state that is a list of objects, and you want to add
 
 ```js
 enum ActionTypes {
-  ADD_TODO,
-  REMOVE_TODO,
+    ADD_FIELD,
+    REMOVE_FIELD,   
 }
-const reduce = (state, action) => {
-  switch (action.type) {
-    case ActionTypes.ADD_TODO:
-      return [...state, action.text];
-    default:
-      return state;
-  }
+const reducer = (state, action) => {
+    switch (action.type) {
+        case ActionTypes.ADD_FIELD:
+            return [...state, action.field];
+        default:
+            return state;
+    }
 };
 
-const addTodo = (text) => {
-  return {
-    type: ActionTypes.ADD_TODO,
-    text
-  }
-}
+const dispatchAction = (action) => {
+    setState(state => reducer(state, action));
+};
 ```
 
-Now this is a reducer, but it is not a pure function. It is a function that takes in a state and an action, and returns a new state. 
+Now this is a reducer. It is a function that takes in a state and an action, and returns a new state. This allows you to specify what are the different ways in which the state can be changed.

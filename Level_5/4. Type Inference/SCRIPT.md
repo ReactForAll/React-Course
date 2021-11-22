@@ -43,7 +43,7 @@ let arr = [1, "Hello", 3];
 
 Typescript infers that the type of arr is an array of type `number | string` ie. `(number | string)[]`. Typescript infers union types also this way.
 
-From the above examples you may notice that whenever you initialize a variable with some value, typescript infers the type of the variable based on the value. It is important to note that TypeScript has a hard time inferring types if you do not initialize the variable.
+From the above examples you may notice that whenever you initialize a variable with some value, typescript infers the type of the variable based on the value. It is important to note that TypeScript has a hard time inferring types if you do not initialize the variable. 
 
 ## Contextual Typing
 

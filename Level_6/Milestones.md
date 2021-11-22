@@ -1,7 +1,6 @@
 # Milestones
-Union Types or Variants
+Interfaces and Inheritance
 Creating Types of Types (Generics)
-Function Types
 Optional, Default and Rest Parameters
 Using Actions and Reducers
 The useReducer Hook

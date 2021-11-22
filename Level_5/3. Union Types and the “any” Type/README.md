@@ -28,7 +28,7 @@ Defining a type like this gives you better type-safety than using an enum.
 
 In typescript, you can use the `any` type to represent a variable that can hold any type of value. This needs to be avoided to the best of your ability if you want to take advantage of that type safety that typescript promises.
 
-To initialize a variable with the `any` type, you can:
+To initialize a variable with the www`any` type, you can:
 
 ```js
 let x: any;
