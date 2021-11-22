@@ -1,6 +1,6 @@
 Till now we've been using the browser to navigate through the single page application. This meant that if you refresh the page at some point, the application would start from the beginning.
 
-React Router is used to render the app based on the URL. With React Router instead of loading everything in your root URL, it allows you to changes this behavior.
+React Router is used to render the app based on the URL. With React Router instead of loading everything in your root URL, it allows you to change this behavior.
 
 React Router allows you to read the URL and render your app based on it, thereby allowing you to mimic the behavior of a multi page application. You can also use programmatic navigation over `<a href>` tags, therefore allowing you to show the pages without having to reload the page.
 
