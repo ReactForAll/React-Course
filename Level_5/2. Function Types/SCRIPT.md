@@ -1,4 +1,4 @@
-In the previous lesson, we learned how we can define static typed variables. We can also define static typed functions. A static typed function has a defined type for each argument and the return type of the function. This brings a lot more clarity on what a funciton does. When you create a function that pads a string, you can't pass anything other than a string. Nor can you pass in undefined. This means that you don't have to handle undefined or other types within the function.
+In the previous lesson, we learned how we can define static typed variables. We can also define static typed functions. A static typed function has a defined type for each argument and the return type of the function. This brings a lot more clarity on what a function does. When you create a function that pads a string, you can't pass anything other than a string. Nor can you pass in undefined. This means that you don't have to handle undefined or other types within the function.
 
 ```js
 // Function that takes a string and returns a string
@@ -11,7 +11,7 @@ If you look at the above function, we've specified that it takes a string as an 
 
 Now that we've looked at how to define a function with static typing, let's take a look at passing functions as parameters. Or a function that returns a function.
 
-If you're passing a function A that takes X and returns Y into a function B, you can specify the type of funciton B as
+If you're passing a function A that takes X and returns Y into a function B, you can specify the type of function B as
 
 ```js
 function B(funcA: (x: X) => Y): void {
