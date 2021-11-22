@@ -6,7 +6,7 @@ A Compiler takes an entire program (Project when dependencies are involved) and 
 
 
 ## Common Types
-Data is always stored as binary (1s and 0s). To make things simpler, we have a higher level abstraction to data storage which is applicable to most programming languages.
+Data is always stored as binary (1s and 0s). To make things simpler, we have a higher level abstraction for data storage which is applicable to most programming languages.
 
 #### Primitive Data Types in C/C++
 
@@ -37,7 +37,7 @@ x = false // Assigning boolean
 
 ## Drawbacks of Dynamic Typing | JS
 
-High Runtime Errors: We've observer a very high frequency of Runtime Tyoe Errors in ReactJS on Error Monitoring Services.
+High Runtime Errors: We've observer a very high frequency of Runtime Type Errors in ReactJS on Error Monitoring Services.
 
 Extra Reading: [Static Typing Where Possible, Dynamic Typing When Needed:
 The End of the Cold War Between Programming Languages](https://www.ics.uci.edu/~lopes/teaching/inf212W12/readings/rdl04meijer.pdf)
