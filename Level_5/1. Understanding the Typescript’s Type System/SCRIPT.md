@@ -19,7 +19,7 @@ function floorValue(value: number) {}
 floorValue(''); // type error, use a number as a string type parameter
 ```
 
-You might think what's the need to control the types of the parameters and return values of functions. This becomes relavant when you are working with larger projects and you want to avoid run-time errors. There could be a simple variable that is being used across multiple files and you want to make sure that this variable is always defined and never set to undefined. Typescript helps you achieve this.
+You might think what's the need to control the types of the parameters and return values of functions. This becomes relevant when you are working with larger projects and you want to avoid run-time errors. There could be a simple variable that is being used across multiple files and you want to make sure that this variable is always defined and never set to undefined. Typescript helps you achieve this.
 
 
 You can make an array of any type. Be it an array of strings, numbers, booleans or even complex types. You can also make an array of arrays. We'll learn more about complex arrays in later sections
