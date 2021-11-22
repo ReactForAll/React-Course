@@ -21,7 +21,7 @@ const dispatchAction = (action) => {
 };
 ```
 
-Now this is a reducer. It is a function that takes in a state and an action, and returns a new state. This allows you to specify what are the different ways in which the state can be changed. This makes it easier to debug the code and ensures a better structure for your state. Let's try to dive into the code and see how the reducer works. For simplicity sake, we've defined only the action for one type of action. At the end of this lesson you can try to creating and handling the REMOVE_FIELD action.
+Now this is a reducer. It is a function that takes in a state and an action, and returns a new state. This allows you to specify what are the different ways in which the state can be changed. This makes it easier to debug the code and ensures a better structure for your state. Let's try to dive into the code and see how the reducer works. For simplicity's sake, we've defined only the action for one type of action. At the end of this lesson you can try to create and handle the REMOVE_FIELD action.
 
 So in the above example we've created a reducer that handles the ADD_FIELD action. We've created a temporary dispatchAction function that updates that state using the reducer. When you want to add a field you dispatch an action like:
 
