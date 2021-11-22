@@ -1,4 +1,4 @@
-React Router is used to render the app based on the URL. With React Router instead of loading everything in your root URL, it allows you to changes this behavior.
+React Router is used to render the app based on the URL. With React Router instead of loading everything in your root URL, it allows you to change this behavior.
 
 In this course we'll be using `hookrouter` to make this happen.
 
