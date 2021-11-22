@@ -11,7 +11,7 @@ function itemAt<T>(index: number, arr: T[]): T {
 }
 ```
 
-Here we have a generic function that takes an index and an array and returns the element at that index. Here the array can be of any type. Since the argument `arr` is of type `T[]`, we can do anything that we could do to an array in general and we respond with the element at an index, whichwould of type `T`.
+Here we have a generic function that takes an index and an array and returns the element at that index. Here the array can be of any type. Since the argument `arr` is of type `T[]`, we can do anything that we could do to an array in general and we respond with the element at an index, of type `T`.
 
 A good example of using generics would be to work on similar types of data. For instance, you could create a generic function that takes an array with the property `{age: number}` and returns the oldest date.
 
