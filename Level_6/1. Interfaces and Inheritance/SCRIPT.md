@@ -11,7 +11,7 @@ interface User {
 }
 ```
 
-When you're working with an api, you can use the interface to define what the response should look like.
+When you're working with an API, you can use the interface to define what the response should look like.
 
 An added advantage of using interfaces is you can extend an interface to define another that is more specific than the interface.
 
@@ -28,7 +28,7 @@ interface Admin extends User {
 }
 ```
 
-With this, you can define a new interface that is more specific than the User interface. We not have an `Admin` interface that has all the properties of the User interface and the role property in addition to that.
+With this, you can define a new interface that is more specific than the User interface. We don't have an `Admin` interface that has all the properties of the User interface and the role property in addition to that.
 
 
 ### Optional Properties
