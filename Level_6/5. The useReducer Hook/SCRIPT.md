@@ -89,6 +89,6 @@ const reducer = (state: FormElement[], action: { type: "ADD_FIELD", field: FormE
 
 ```
 
-Now this is more in line with our Form Builder. We can add new Form Fields to the state and render them from the state. This becomes more and more relavant as you create more complex forms and thereby require more complex state management.
+Now this is more in line with our Form Builder. We can add new Form Fields to the state and render them from the state. This becomes more and more relevant as you create more complex forms and thereby require more complex state management.
 
 In the example above, we have a reducer that can add a form field to the state. We're exhaustively handling all the allowed form field variants. To make the reducer handle more actions we should add the allowed actions to the type property of the action that we receive in the reducer.
