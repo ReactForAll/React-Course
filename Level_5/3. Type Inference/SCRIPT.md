@@ -7,7 +7,7 @@ x = "Hello"; // TypeError: Type 'string' is not assignable to type 'number'.
 
 ```
 
-Here You can see that TypeScript infers that the type of x as a number.
+Here TypeScript infers that the type of x is a number, since it was assigned a `number`.
 
 ```js
 
@@ -16,7 +16,7 @@ x = 3; // TypeError: Type 'number' is not assignable to type 'string'.
 
 ```
 
-Here TypeScript infers that the type of x is a string.
+Here TypeScript infers that the type of x is a string, since it's initialized with a `string` value. 
 
 Now Typescript can also infer the type of Arrays and Objects. For instance,
 
@@ -43,4 +43,17 @@ let arr = [1, "Hello", 3];
 
 Typescript infers that the type of arr is an array of type `number | string` ie. `(number | string)[]`. Typescript infers union types also this way.
 
-It is important to note that TypeScript has a hard time inferring types if you do not initialize the variable.
+From the above examples you may notice that whenever you initialize a variable with some value, typescript infers the type of the variable based on the value. It is important to note that TypeScript has a hard time inferring types if you do not initialize the variable.
+
+## Contextual Typing
+
+Typescript also infers the type of functions based on the context in which they are used. This is called contextual typing. For instances
+
+```js
+window.onmousedown = function (mouseEvent) {
+  console.log(mouseEvent.button);
+  console.log(mouseEvent.kangaroo); //Property 'kangaroo' does not exist on type 'MouseEvent'.
+};
+```
+
+Here since window and window.onmousedown are previously defined, typescript infers the type of the newly assigned window.onmousedown function as `(mouseEvent: MouseEvent) => void`. Therefore typescript knows that MouseEvent has no property called kangaroo defined, thus throwing the error.

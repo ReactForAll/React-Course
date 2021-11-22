@@ -44,3 +44,16 @@ let arr = [1, "Hello", 3];
 Typescript infers that the type of arr is an array of type `number | string` ie. `(number | string)[]`. Typescript infers union types also this way.
 
 It is important to note that TypeScript has a hard time inferring types if you do not initialize the variable.
+
+## Contextual Typing
+
+Typescript also infers the type of functions based on the context in which they are used. This is called contextual typing. For instances
+
+```js
+window.onmousedown = function (mouseEvent) {
+  console.log(mouseEvent.button);
+  console.log(mouseEvent.kangaroo); //Property 'kangaroo' does not exist on type 'MouseEvent'.
+};
+```
+
+Here since window and window.onmousedown are previously defined, typescript infers the type of the newly assigned window.onmousedown function as `(mouseEvent: MouseEvent) => void`. Therefore typescript knows that MouseEvent has no property called kangaroo defined, thus throwing the error.

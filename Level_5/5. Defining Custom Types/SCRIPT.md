@@ -9,9 +9,10 @@ type FormItem = {
   required: boolean;
 };
 ```
-## Discriminated unions
 
-Discriminated Unions open the door for creating much more precise union types. They allow you to create types that contain multiple types of objects, that are discriminated by a common attribute
+### Discriminated unions
+
+We've gone through Unions that allow us to define types with different allowed values. Discriminated Unions on the the other hand go one step further in designing types that precisely fit your usecase. They allow you to create types that contain multiple types of objects, that are discriminated by a common attribute
 
 ```js
  interface Circle {
