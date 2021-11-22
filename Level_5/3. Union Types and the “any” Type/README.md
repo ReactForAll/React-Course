@@ -1,6 +1,6 @@
 ### Union Types
 
-Typescript uses what is known as union types to accomodate dynamic variables which can have values of multiple types. You can use the `|` symbol to create a union type.
+Typescript uses what is known as union types to accommodate dynamic variables which can have values of multiple types. You can use the `|` symbol to create a union type.
 
 ```js
 let x: number | string = 3;
