@@ -4,9 +4,13 @@ Welcome back!
 
 Through the last lesson, we have set up a CRA App. Now let's take a look at how we can use the React APIs to build our app.
 
-You can head straight to the `index.tsx` file. This is the Entry Point for your React Project. You can take a quick look at the imports.
+You can head straight to the `index.tsx` file. This is the Entry Point for your React Project. You can take a quick look at the imports. You can see that we're using React and ReactDOM here. We use ReactDOM to mount our React Component on to our index.html Page. We have a fairly simple App.tsx file that renders a simple React Component, but before we go there. So let's replace the code calling the `App.tsx` file and build a simple `Hello World` example to start with!
 
-Now you can see the ReactDOM.render function being called. This is where the magic begins. In vanilla Javascript you may have used something like
+```js
+ReactDOM.render(<h1>Hello World</h1>, document.getElementById('root'));
+```  
+
+Now when you run our app, you'll see a simple HTML page with a `<h1>Hello World</h1>` inside the <div id="root">
 
 ```js
 document.getElementById('id).setInnerHTML(<h1>Hello World</h1>);
@@ -14,9 +18,6 @@ document.getElementById('id).setInnerHTML(<h1>Hello World</h1>);
 
 ReactDOM.render works similarly. Now if you open the file at `public/index.html`, You can see the div with id `root`. Now when you say 
 
-```js
-ReactDOM.render(<h1>Hello World</h1>, document.getElementById('root'));
-```  
 
 React will render the h1 element inside the div with id `root`.
 

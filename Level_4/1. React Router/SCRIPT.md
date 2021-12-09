@@ -18,8 +18,11 @@ npm install hookrouter
 
 Once you've installed hookrouter, you can import it in your application and configure your routes.
 
+Let's make a router component that loads our existing app at `/app` and shows a simple home page at `/` with a button that navigates to `/app`
+
 ```js
-import {useRoutes} from 'hookrouter';
+import { useRoutes } from 'hookrouter';
+import App from "app";
 
 const Home = () => <a href="/app"> Slick Form </a>;
 
@@ -30,9 +33,10 @@ const routes = {
 	
 const Router = () => {
     const routeResult = useRoutes(routes);
-    
-    return routeResult || <NotFoundPage />;
+    return routeResult || <div className="h-screen flex items-center"> </div>;
 }
 ```
 
 There you have it! Now you can use `hookrouter` to render the app based on the URL. You can add any number of paths and load React components based on the current URL.
+
+Here we have the `useRoutes` function which takes in the URLs that we've defined and what react component we want to load for each URL. This function underneath watches the URL and changes the React components that are mounted based on the URL as if the URL was a state! 

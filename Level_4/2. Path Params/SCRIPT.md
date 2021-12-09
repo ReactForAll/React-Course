@@ -25,3 +25,6 @@ const routes = {
 ```
 
 Another added advantage is that this allows you to easily generate shareable links, because the link has the information required to share an item in your application.
+
+Now let's use the Path Param we receive from our router to load the relavant Quiz that's saved with us!
+

@@ -1,4 +1,4 @@
-React Router is used to render the app based on the URL. With React Router instead of loading everything in your root URL, it allows you to change this behavior.
+In this lesson you'll learn about React Router which helps you to load your app based on a URL instead of loading your entire app at the same URL as the name "Single Page Application" Suggests. This allows you to make your SPA mimic the URL based routing of Multi Page Applications
 
 In this course we'll be using `hookrouter` to make this happen.
 
@@ -11,7 +11,8 @@ npm install hookrouter
 Once you've installed hookrouter, you can import it in your application and configure your routes.
 
 ```js
-import {useRoutes} from 'hookrouter';
+import { useRoutes } from 'hookrouter';
+import App from "app";
 
 const Home = () => <a href="/app"> Slick Form </a>;
 
@@ -22,8 +23,7 @@ const routes = {
 	
 const Router = () => {
     const routeResult = useRoutes(routes);
-    
-    return routeResult || <NotFoundPage />;
+    return routeResult || <div className="h-screen flex items-center"> </div>;
 }
 ```
 
