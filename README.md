@@ -142,35 +142,71 @@ Through this level, students learn to use static and dynamic routes to improve t
 Milestone: Configure the router such that each quiz would have a public link that can be shared and receive form submissions. The Components for Creating and Managing Forms should be protected using a static username and password.
 
 
-Level 5 : Types in Depth and Variants
-Understanding the Typescript’s Type System
-Basic Types in Typescript
-Type Inference
-Dynamic Types and the “any” Type
-Defining Custom Types
-Interfaces and Inheritance
+### Level 5 : Types in Depth and Variants
+
+#### Understanding the Typescript’s Type System
+
+This is another conceptual lesson in which we'd explain the importance of a Type system and it's advantages. We'd change the type of the `form` state and explain how the compiler helps in refactoring the code
+
+#### Function Types
+
+Through this lesson students are taught to understand types for functions and demonstrate how we use default and optional parameters. We also go through the types involved in event handlers in better depth, and how we pass functions into functions.
+
+#### Union Types and the "any" type
+
+In this lesson the students are taught to use Union Types combining multiple types. We upgrade our form to support more than just text inputs as we demonstrate this. 
+
+#### Type Inference
+
+Through this lessons we show examples of where the compiler can infer the type of a variable. And where it messes up. We also show examples of how Tyepscript sometimes infer unions and how speciying types are better and safer in most cases.
+
+#### Summary
 
 Through this level, students are introduced to the different types that are available in typescript and build custom interfaces for their requirements.
 
 Milestone: Make the form capable of handling inputs beyond text fields. Make the form builder capable of fields of all HTML form inputs.
-Level 6 : Modelling and Managing Complex States
-Union Types or Variants
-Creating Types of Types (Generics)
-Function Types
-Optional, Default and Rest Parameters
-Using Actions and Reducers
-The useReducer Hook
+
+### Level 6 : Modelling and Managing Complex States
+
+#### Interfaces and Inheritence
+
+In this lesson we go into better depth about the use of interfaces and how interfaces can be inherited to make more specific interfaces for our components modelled around a base interface.
+
+#### Generics in typescript
+
+In this lesson we explain how generics are used in typescript and how they can be used to make code more reusable. We also explain how our useState hook is used to create React State around different types.
+
+#### Using Actions and Reducers
+
+In this lesson we explain how actions and reducers are used and refactor our onChange functions to use a new Reducer thus demonstrating Actions and Reducers
+
+#### The useReducer Hook
+
+In this lesson we explain how the useReducer Hook is a good way to enforce the action reducer pattern. We refactor our code to use the useReducer Hook.
+
+#### Summary
 
 Through this level, students learn to use more complex data structures and manage them using the action reducer pattern.
 
 Milestone: Refactor the form builder into a functional component to handle states using the action reducer pattern.
-Level 7 : APIs and State Modelling
-Asynchronous Nature of React States
-State Modelling based on Backend Data Model
-Setting up an API Wrapper.
-Authentication and Managing Current User
-Working with pageable APIs
-Options for Global Storage
+
+### Level 7 : APIs and State Modelling
+
+#### The fetch API and promises
+
+#### State Modelling based on Backend Data Model
+
+#### Setting up an API Wrapper.
+
+#### Authentication and Managing Current User
+
+#### Working with pageable APIs
+
+#### Options for Global Storage
+
+Through this lesson students are taught about the options for global storage in the browser beyond localStorage. utilities like `sessionStorage` and the browser's `indexedDB` are demonstrated.
+
+#### Summary
 
 Through this level, students are introduced to using APIs to work with the backend refactor data storage in localStorage to the backend using APIs. Students also learn to maintain a session with the backend.
 
@@ -179,24 +215,30 @@ Milestone: Integrate all APIs to build a form builder and generate links to subm
 
 
 
-Level 8 : Best Practices and npm packages
-Accessibility A11
-WAI-ARIA basics
-The plethora of npm packages
-The strings attached to using npm packages 
-Using reputed packages
-Compatibility and future support
+### Level 8 : Best Practices and npm packages
+
+#### Accessibility A11
+#### WAI-ARIA basics
+#### The plethora of npm packages and the string attached
+#### Using reputed packages
+#### Compatibility and future support
 
 Through this lesson, students learn the importance of accessibility and try out WAI ARIA to improve accessibility. Students are introduced to npm packages.
 
 Milestone: Add Accessibility to all form components. Use npm packages to improve the project
 
-Level 9 : Production React Apps 
-Production Checklist
-Creating a Production Build
-Deploying a React App on the Cloud
-Suspense and lazy loading
-PWA config for CRA
+### Level 9 : Production React Apps 
+
+#### Production Checklist
+
+#### Creating a Production Build
+
+#### Deploying a React App on the Cloud
+
+#### Suspense and lazy loading
+
+#### PWA config for CRA
+
 
 Throughout this lesson, students learn to optimize the project for production use and deploy the same into Netlify
 
