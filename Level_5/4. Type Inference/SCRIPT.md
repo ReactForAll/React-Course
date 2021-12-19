@@ -7,7 +7,15 @@ x = "Hello"; // TypeError: Type 'string' is not assignable to type 'number'.
 
 ```
 
-Here TypeScript infers that the type of x is a number, since it was assigned a `number`.
+Here a TypeError is thrown because Typescript automatically infers that x is a number and therefore when you try to assign the string Hello to x, Typescript throws the TypeError. 
+In the above example, since we are using a primitive datatype, the type inference is pretty straightforward. But Typescript is also capable of inferring the types for arrays and objects as well. For instance, if you write 
+
+```js
+latex = [0,1,"Hello"]
+
+```
+Typescript would infer x to be of type (number | string)[] 
+
 
 ```js
 

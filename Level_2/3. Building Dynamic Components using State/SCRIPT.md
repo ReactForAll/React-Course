@@ -1,0 +1,70 @@
+# Building Dynamic Components using State
+
+Now that you've seen how to use state, let's take look at how you can use state to build dynamic components. You can build components with one or more state variables, and the state variables can be used to dynamically change the content of the component.
+
+Let's take our `formFields` array and put it into a React state so that we can dynamically change it
+
+```js
+const initialState = [
+  { id: 1, label: "First Name" },
+  { id: 2, label: "Last Name" },
+  { id: 3, label: "Email" },
+];
+
+function App() {
+  const [formFields, setFormFields] = React.useState(initialState);
+  ...
+}
+```
+
+You may note that we may have not specified the type state because the React infers the type of the state based on the initial state value that we have passed. 
+
+Now that we have made the `formFields` into a state variable, let's add a button for the user to make additional form fields.
+
+```js
+
+  <button
+    onClick={() =>
+      setFormFields([
+        ...formFields,
+        { id: formFields.length + 2, label: "New Field" },
+      ])
+    }
+  >
+    Add Field
+  </button>
+```
+
+Here, we are using the spread operator `...formFields` to spread the exisiting values of the array into the new array that we are creating. 
+
+Now using this button you can add additional fields into our form by simply adding an additional object to our formFields state using which we are rendering our form. Here, by using separate states for each components, we can encapsulate the data and logic relevant to each component. 
+
+Now let's add a button for each form element to remove that formField. In order to modify our array in an immutable manner, to remove fields we use the array filter function
+
+```js
+<div className="flex w-full justify-between items-end">
+  <span className="w-full text-lg px-2">{field.label}</span>
+  <button
+    className="bg-gray-200 text-gray-800 border-2 border-gray-400 rounded-lg p-2 m-2"
+    onClick={() =>
+      setFormState(formState.filter((item) => item.id !== field.id))
+    }
+  >
+    Remove
+  </button>
+</div>
+```
+
+Here, on clicking the remove button, we filter the form state to create a new array without the field being deleted and set it as the new value of the state.
+
+With the new remove function, you may notice that we now have a bug. If you remove a formfield and then add another, based on our current logic, the new formField will have an ID representing the array index + 1. This would mean that you might end up making form fields with the same IDs. To avoid this, lets use a function that can generate a unique value. You can simply create a new `Number` from a `new Date` object to achieve this. 
+
+This would make our addField function look like:
+
+```js
+setFormState([
+  ...formState,
+  { id: Number(new Date()), label: "New Field" },
+])
+```
+
