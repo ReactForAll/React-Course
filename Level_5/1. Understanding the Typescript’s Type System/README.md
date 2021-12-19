@@ -1,32 +1,25 @@
-# Introduction to Type System
-Through this milestone we explore how typed languages are different from untyped languages and some of the advantages of typed languages.
+Through this Level, we explore how typed languages are different from untyped languages and some of the advantages of typed languages.
 
-## Compiled and Interpreted Languages
-A Compiler takes an entire program (Project when dependencies are involved) and converts it into Object Code that are Platform Specific and can be executed by the machine. An Interpreter directly executes the source code line by line on the target machine.
+Through the previous lessons, we've been using some basic types in our programs. In this Level, we'll explore how to use more advanced types in our programs.
 
+#### Primitive Data Types in Typescript
+The commonly used primitive data types available in Typescript as described in the [official documentation](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#the-primitives-string-number-and-boolean) are 
 
-## Common Types
-Data is always stored as binary (1s and 0s). To make things simpler, we have a higher level abstraction for data storage which is applicable to most programming languages.
-
-#### Primitive Data Types in C/C++
-
-Integers (int) -> -32768 to 32767 | at least 16 bits
-Boolean (bool) -> true or false | 1 bit
-Character (char) -> Character (a-zA-Z0-1!@...) | at least 8 bits
-
-#### Primitive Data Types in Javascript
-The base data types available in Javascript are 
-
-    undefined : typeof instance === "undefined" | undefined
-    Boolean : typeof instance === "boolean" | true or false
-    Number : typeof instance === "number" | 3.14
     String : typeof instance === "string" | "Hello World"
+    Number : typeof instance === "number" | 3.14
+    Boolean : typeof instance === "boolean" | true or false
 
-#### Object Data Types in Javascript
-The base data types available in Javascript are 
+On top of these there is also the type `any` which is a type that can be anything. We prefere not to use this type in our programs because it defeats the purpose of the type system.
 
-    Object : typeof instance === "object" | {id:1, name:"John Doe"}
-    Array : typeof instance === "object" && instance instanceof Array | [1,2,3]
+JavaScript has two primitive values used to signal absent or uninitialized value: `null` and `undefined`. TypeScript has two corresponding types by the same names. You can enable the `strictNullChecks` compiler option to get strict null checks.
+
+#### noImplicitAny
+The `noImplicitAny` compiler option is used to prevent the compiler from inferring `any` type when no type is explicitly provided. At the end of this Level, we'll see how to use this option to get rid of unintentional use of the `any` type.
+
+#### Arrays
+
+#### Objects
+
 
 ## Static and Dynamic Typing
 

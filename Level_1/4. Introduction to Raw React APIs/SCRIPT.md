@@ -1,52 +1,61 @@
-# Introduction to React APIs
-
-Welcome back!
-
 Through the last lesson, we have set up a CRA App. Now let's take a look at how we can use the React APIs to build our app.
 
 You can head straight to the `index.tsx` file. This is the Entry Point for your React Project. You can take a quick look at the imports. You can see that we're using React and ReactDOM here. We use ReactDOM to mount our React Component on to our index.html Page. We have a fairly simple App.tsx file that renders a simple React Component, but before we go there. So let's replace the code calling the `App.tsx` file and build a simple `Hello World` example to start with!
 
 ```js
-ReactDOM.render(<h1>Hello World</h1>, document.getElementById('root'));
+ReactDOM.render(<h1>Hello World!</h1>, document.getElementById('root'));
 ```  
 
-Now when you run our app, you'll see a simple HTML page with a `<h1>Hello World</h1>` inside the <div id="root">
+Now when you run our app using `npm start`, and open it up in your browser, you'll see a simple HTML page that says `Hello World!`. Now if you open up the developer tools in your browser and inspect the HTML that is being rendered, you would see an  `<h1>Hello World!</h1>` inside the <div id="root">. Now if you've used vanilla Javascript in the past, you might notice that what has happened here is quite similar to what would happen if you invoked the `.setInnerHTML` method on a DOM element, like:
 
 ```js
-document.getElementById('id).setInnerHTML(<h1>Hello World</h1>);
+document.getElementById('root').setInnerHTML(<h1>Hello World</h1>);
 ```
 
-ReactDOM.render works similarly. Now if you open the file at `public/index.html`, You can see the div with id `root`. Now when you say 
+The only difference is that When you use the `.setInnerHTML` method, you're actually setting the HTML of the DOM element. But when you use the `.render` method, you're actually modifying a virtual copy of the DOM element, or in other words the React DOM. And react works under the hood to change the actual DOM to mimic the virtual DOM. 
 
+If you open the file at `public/index.html`, You can see the div with id `root`. So when we ask ReactDOM to render something to `document.getElementById('root')`, it mounts the React App to this div!
 
-React will render the h1 element inside the div with id `root`.
+We'll learn more about how react works underneath in the coming lessons. But for now, we need to understand that using the React APIs we specify the HTML that we want to render and React renders it for us.
 
-Now that you know how the Render method works, let's see how React can create React Elements and render them.
+### React.createElement
 
-Creating a React element using React's API is very simple. You can use `React.createElement` to create a React element. for example, to create a div element. The syntax for `React.createElement` is:
+So we understand that React has a virtual copy of the DOM. Similarly, for each element of the HTML tree, React maintains a React element. To create a React element, we use the `React.createElement` method. The syntax for `React.createElement` is:
 
 ```js
-    React.createElement(type, props, children)
+    React.createElement(
+        type, // tag or component
+        props, // props or attributes
+        children
+    )
 ```
 
-Here you can assume props to be the properties of the element. For example, you can create a div element with `React.createElement('div', {id: 'my-div'}, 'Hello World')`.
+Here you can assume props to be the attributes of the element. For example, you can create a div element with 
+
+```js
+    const headingElement = React.createElement(
+        'h1', // tag or component
+        { className: 'py-4 text-center text-xl' }, // attributes or props
+        'Welcome to #react-typescript with #tailwindcss' // children
+    );
+```
 
 This would result in HTML that looks like this:
 
 ```js
-    <div id="my-div">Hello World</div>
+    <h1 class="py-4 text-center text-xl">Welcome to #react-typescript with #tailwindcss</h1>
 ```
 
-Now similar to rendering html elements, you can render React elements using ReactDOM.render.
+You may have noticed that we have specified the `class` for the HTML element as `className` in the props. This is because `class` is a reserved keyword in JavaScript. So we use `className` to specify the class attribute.
 
-For instance you can write something like
+What about the children? The children are the content of the element. For example, you can nest the `headingElement` that you've created inside a `div` element like this:
 
 ```js
-const element = React.createElement('div', {id: 'my-div'}, 'Hello World');
-
-const container = React.createElement('div', {id: 'root'}, element);
-
-ReactDOM.render(container, document.getElementById('root'));
+    const divElement = React.createElement(
+        'div', // tag or component
+        { className: 'flex h-screen bg-gray-100 items-center justify-center' }, // attributes or props
+        headingElement // children
+    );
 ```
 
-Now this doesn't exactly look like the perfect way to write code, but it is important for us to understand how React works. We will lear more about how react works underneath in the next lesson.
+So that's How React Elements are created using the `createElement` API. Now you might think this isn't exactly a very elegant way to build web apps given that we end up needing to write more code than the HTML we generate. If you thought so, you'd be correct too! To tackle this, we'll learn JSX in the next lesson to write React Code much more similar to our HTML!

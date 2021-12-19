@@ -41,14 +41,16 @@ You should see the following output:
 nvm version: v0.33.11
 ```
 
+If you see the NVM version showing up here, it means you're nvm installation is intact.
+
 ### Install NodeJS
 
-We'll use NodeJS version 14.8.1 for this course, because it's the LTS (Long Term Support) version right now.
+We'll use NodeJS version 14.18.2 for this course, because it's the LTS (Long Term Support) version right now. Even if you're following this course at a time when a newer version is available, it is recommended that you use the same version for this course.
 
 With nvm installed, you can install NodeJS by running the following command:
 
 ```
-    nvm install 14.8.1
+    nvm install 14.18.2
 ```
 
 ## Install IDE Extensions
@@ -57,15 +59,11 @@ We'll be using VS Code for this course. You would've installed VS Code in the pr
 
 In VS Code we recommend you install the following extensions:
 
-ESLint
-ESLint-plugin-react
-tailwind-intellisense
+1. Prettier: Prettier is a simple extension that formats your code as you type. It's a great way to improve your code readability. You can install it from the VS Code Marketplace.
+2. tailwind-intellisense: Tailwind Intellisense is a VS Code extension that helps you to use Tailwind CSS classes in your code. This extensions gives you suggestions for styling classes based on your specific Tailwind Cofiguration. It's an extension that would make your life a lot more easier! You can install this one too from the VS Code Marketplace.
 
-On your browser, you can install
-
-React Dev Tools
-
-This would help you to debug your React applications better.
+Now that you have your IDE set up, let's install the React Dev Tools extension for your browser so that you can debug your React applications with ease. React Dev Tools is available for Firefox as well as Chrome. You can find them in the respective 
+On your browser, you can install them from the respective extensions pages.
 
 ## Epilogue
 
