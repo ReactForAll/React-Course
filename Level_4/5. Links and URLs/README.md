@@ -1,26 +1,9 @@
-Using `<a>` tags isn't the best way to create link in your React app. This causes the page to unnecessarily reload.
+We've been using `<a href>` tags for all our links. This means that for every link that the user clicked on, the entire react app is being reloaded. This is not the desired behaviour.
 
-If you want to create an anchor tag, you can use the `<A>` component from the 'hookrouter' library.
-
-```js
-    import { A } from 'hookrouter';
-
-    <A href="/">Home</A>
-```
-
-This would mimic an `<a>` tag in the dom, but overrides the default behavior of loading the new URL as a new page, and instead updates the URL and requests the router to re-render the app based on the new URL.
-
-You can also use the `setLinkProps` helper function from the 'hookrouter' library to create your own custom component that works as a link. 
-
+In order to optimize this, you can use the `<Link>` component. The `<Link>` component will update the URL without reloading the entire page.
 
 ```js
-    
-    import { A, setLinkProps } from 'hookrouter';
+import { Link } from 'raviger';
 
-    const Button = ({ children, ...props }) => (
-    <button {...setLinkProps(props)}>{children}</button>
-    );
-
-    <Button href="/about">About</Button>
-        
+    <Link href="/">Home</Link>
 ```

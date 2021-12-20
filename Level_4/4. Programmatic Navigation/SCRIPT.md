@@ -1,6 +1,8 @@
-In the previous lesson we've learned to use the path in the URL to render our component accordingly. We used a href tags to navigate different URLs. But until now, we have not explored a method that would allow us to change the URL from our code. We can achieve this using the navigate function from `raviger`.
+In the previous lesson we've learned to use the path in the URL to render our component accordingly. We used `a href` tags to navigate to different URLs. But until now, we have not explored a method that would allow us to change the URL from our code. We can achieve this using the `navigate` function from `raviger`.
 
-For our New Forms, let's use the navigate function to update the URL with the newly generated ID of the form.
+Now where would be need to use this, for instance if we open up a new form at `/form`, we generate a new `formID`, but since it doesn't get updated in the URL, the user may lose track of the form if he accidentally refreshes the page. 
+
+How can we solve this? We can use the `navigate` function to change the URL from our code as soon as we generate the formID. This would mean that even if the user reloads the page, the same form would be loaded from the `localStorage` based on the `formID` in the URL.
 
 ```js
   import { navigate } from 'raviger';
