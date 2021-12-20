@@ -28,6 +28,8 @@ Instead of simply mutating the value of the state variable like this:
 
 Note that you can also specify the type of the state variable that you are creating using a `<>` like this: 
 
+It is also important to note that react state is asynchronous. This means that when you update the state, it doesn't immediately get updated. Instead, it gets queued up and gets updated in the background. For instance, if you use the setState function to modify a string and console.log the state immediayely after that, you won't see the new value of the string. Instead, you'll see the old value of the string. You will learn more about handling asynchronous state updates in later lessons.
+
 ```js
 const [page, setPage] = useState<string>("Home");
 ```

@@ -7,13 +7,21 @@ Just like we mention static paths in the router, you can also use path params to
 ```js
 const routes = {
     '/': () => <Home />,
-    '/app/:data': ({data}) => <App data={data} />,
+    '/form/:id': ({id}) => <Form id={id} />,
 };
 ```
 
-You might notice that the function that we specify as the value of the key `/app/:data` receives a parameter in which all the path parameters are accessible.
+You might notice that the function that we specify as the value of the key `/form/:id` receives a parameter in which all the path parameters are accessible.
 
-This way you can have a dynamic path like `/app/123` and it will be matched to `/app/:data` and the `data` param will be `123`. And you can use the value of the `data` prop to render the component! 
+This way you can have a dynamic path like `/form/123` and it will be matched to `/form/:id` and the `id` param will be `123`. And you can use the value of the `data` prop to render the component! 
+
+Let's make our app handle more than just a single form and use the path params to open up different forms stored in the `localStorage`. The means that we should also have a url for `/form/new` to create a new form that's not yet stored in the `localStorage`. You would also need to make a component that lists all the available forms in the `localStorage`.
+
+Let's first modify our useLocalStorage hook to handle `/form/new` and `/form/:id` paths.
+
+```js
+
+```
 
 You can also nest path params. Like this:
 
