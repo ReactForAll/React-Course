@@ -1,43 +1,67 @@
-In the previous lesson, we learned about using Dynamic Path parameters and passing them as props to our components. Meanwhile, to read queryParams, which look like `yourapp.com/page?search="Query"`, you need to use the useQueryParams Hook.
+In the previous lesson, we refactored our application to make it capable of managing multiple forms and used `pathParams` to open a form based on the URL. In this leasson, we will learn about using `queryParams`
 
-The useQueryParams hook in hookrouter allows you to read query parameters directly in your component. It returns an object with the query parameters as it's properties. You can simply deconstruct the object(if you fancy that) and use it as you would any other object.
 
-```js
-import { useQueryParams } from 'hookrouter';
+QueryParams are the GET parameters for a page which looks like `yourapp.com/page?search="Query"`. To access the `queryParams` you need to use the useQueryParams Hook. 
 
-const MyComponent = () => {
-  const { queryParams } = useQueryParams();
-  const { search="" } = queryParams;
-  return <div>Searching for {search}</div>;
-};
-```
+Before we jump in let's add a title to our forms so that they are easier to find from the home screen. In order to do this, we first head to our type file at `types\form.ts` and add a title field of type `string` to our `formData` type. Once you do this, you can go ahead and create an input tag to accept our title. Since we are storing our entire `formData` You can also go ahead and refactor the listing in our `<Home>` component to display the title of the form.
 
-In the above example, if we open the page `yourapp.com/page?search="Query"`, your component will render
+Now assuming we have large number of forms, we might need a way to filter out our forms. So, lets build a simple search that would filter our saved forms based on a keyword. Let's use `queryParams` to specify the search keyword so that it is evident in the URL.
 
-```
-<div>Searching for Query</div>
-```
+We can use the `useQueryParams` hook to access the query params.
 
-Now you might ask how query params are different from path params. Well the answer is pretty simple from a user perspective. Query params are more readable for a user. They are more human-friendly. Meanwhile, path params are more concise but does not give the user a sense of what the path is.
-
-You can use `useQueryParams` to all query parameters in your component.
-
-What about modifying the query parameters from your React component? Well useQueryParams also provides a setQueryParams function that you can use to do that!
-
-The same way you would declare a state using useState, you can fetch and modify query parameters using useQueryParams.
 
 ```js
-const MyComponent = () => {
-    const [queryParams, setQueryParams] = useQueryParams();
-    const { search="" } = queryParams;
-    const [search, setSearch] = useState(search);
-    const handleSearchChange = (e) => {
-        setQueryParams({ search: e.target.value });
-    };
-    return (<div>
-        
-            <input type="search" value={search} onChange={e => setSearch(e.target.value)} />
-            <button onClick={handleSearchChange}>Search now</button>
-            <span>Searching for {search}</span>
-        </div>);
+
+const [{ search }] = useQueryParams();
 ```
+
+And let's add a form with an input text so that we can search for our forms. 
+
+```js
+<form
+  className="w-full"
+>
+  <div className="flex flex-wrap -mx-3 mb-6">
+    <div className="w-full px-3">
+      <label
+        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+        htmlFor="grid-search"
+      >
+        Search
+      </label>
+      <input
+        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        id="grid-search"
+        name="search"
+        type="search"
+        placeholder="Search"
+      />
+    </div>
+  </div>
+</form>
+```
+
+Let's also add a filter that checks the form title against the search keyword.
+
+```js
+savedForms.filter(
+            (form) =>
+              form.title?.toLowerCase().includes(search.toLowerCase()) || false
+          )
+```
+In the above example, if we open the page `localhost:3000/?search="Query"`, your component will display the forms that match the query.
+
+Now you might notice that when you submit the search form the page is loaded fresh with the search keyword in the URL. That seems unnecessary since our entire react App is technically the same page. So how can we make the search reactive instead of freshly loading the page?
+
+Along with the `queryParams`, the `useQueryParams` hook also gives you a funciton named `setQueryParams` which allows you to set the query params. Let's use this to update our queryParams instead of loading the page fresh.
+
+We can add an `onSubmit` event to our form and use the `setQueryParams` function to update the queryParams.
+
+```js
+onSubmit={(e) => {
+  e.preventDefault();
+  setQuery({ search: searchString });
+}}
+```
+
+Here, we are using the `e.preventDefault()` to prevent the default behaviour of the form that loads a new URL with the new queryParams. Once we prevent this default behavior, we use the `setQuery` API to update the `queryParams` in a reactive manner.

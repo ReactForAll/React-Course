@@ -1,29 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import FormItem from "./FormItem";
 
-const savedItems = JSON.parse(localStorage.getItem("items") ?? "[]");
-const savedItemDone = JSON.parse(localStorage.getItem("itemDone") ?? "[]");
+const persistedItems: string[] = JSON.parse(
+  localStorage.getItem("items") ?? "[]"
+);
+const persistedItemsDone: boolean[] = JSON.parse(
+  localStorage.getItem("itemsDone") ?? "[]"
+);
 
 function App() {
-  const [items, setItems] = React.useState<string[]>(savedItems);
-  const [itemDone, setItemDone] = useState<boolean[]>(savedItemDone);
+  const [items, setItems] = React.useState<string[]>(persistedItems);
+  const [itemDone, setItemDone] = useState<boolean[]>(persistedItemsDone);
   const [input, setInput] = React.useState<string>("");
-  const [lastEdited, setLastEdited] = React.useState<string>(
-    new Date().toLocaleString()
-  );
-
-  useEffect(() => {
-    let timeout = setTimeout(() => {
-      setLastEdited(new Date().toLocaleString());
-    }, 1000);
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [items, itemDone]);
-
   const addItem = () => {
-    setItems([...items, input]);
+    setItems((items) => [...items, input]);
     setItemDone([...itemDone, false]);
     setInput("");
   };
@@ -34,36 +25,34 @@ function App() {
   const markDone = (index: number) => {
     setItemDone(itemDone.map((done, i) => (i === index ? !done : done)));
   };
-
-  const save = () => {
+  const saveForm = () => {
     localStorage.setItem("items", JSON.stringify(items));
     localStorage.setItem("itemDone", JSON.stringify(itemDone));
   };
   return (
-    <div className="flex justify-center h-full">
-      <div className="m-4 p-4 flex flex-col gap-2">
+    <div className="flex justify-center items-center h-full">
+      <div className="max-w-6xl m-4 p-4 flex flex-col gap-2">
         <h1 className="text-xl">Form</h1>
-        <span>Last edited: {lastEdited}</span>
         {items.map((item, renderIndex) => (
           <FormItem
             key={renderIndex}
             renderIndex={renderIndex}
-            text={item}
-            done={itemDone[renderIndex] ? "Done" : "Not Done"}
-            onChangeCB={(e: any) =>
+            inputValue={item}
+            onChange={(e: any) =>
               setItems(
                 items.map((currentItem, mapIndex) =>
                   mapIndex === renderIndex ? e.target.value : currentItem
                 )
               )
             }
-            markDoneCB={markDone}
             removeItemCB={removeItem}
+            markDoneCB={markDone}
+            itemDone={itemDone[renderIndex]}
           />
         ))}
         <div className="flex gap-2">
           <input
-            className="flex-1 border border-gray-400 bg-gray-100 rounded-md p-2"
+            className="flex-1 bg-gray-100 border border-gray-400 rounded-md p-2"
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
@@ -71,8 +60,8 @@ function App() {
             Add Item
           </button>
         </div>
-        <div className="flex justify-end m-2 mt-4">
-          <button className="bg-blue-400 rounded-md p-2" onClick={save}>
+        <div className="flex flex-row-reverse m-2 mt-4">
+          <button onClick={saveForm} className="bg-blue-600 rounded-md p-2">
             Save
           </button>
         </div>

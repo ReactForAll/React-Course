@@ -1,28 +1,25 @@
-In the previous lesson we've learned to use the path in the URL to render our component accordingly. What about when we need to change the Component, this means that we need to update the URL and  In order to use this we need to programmatically update the URL that we have opened. Now how would we change the URL from our code (Not from an a href link).
+In the previous lesson we've learned to use the path in the URL to render our component accordingly. We used a href tags to navigate different URLs. But until now, we have not explored a method that would allow us to change the URL from our code. We can achieve this using the navigate function from `raviger`.
 
-We can use the `navigate` function from `hookrouter` to take care of this!
-
-```js
-import { navigate } from 'hookrouter';
-
-const MyComponent = () => {
-  const handleClick = () => {
-    navigate('/about');
-  };
-
-  return (
-    <button onClick={handleClick}>
-      Go to about page
-    </button>
-  );
-};
-```
-
-The navigate function also takes 2 optional parameters: `[replace]` and `[queryParams]`. The `replace` parameter is a boolean value which, if true, will replace the current history entry. The `queryParams` parameter will add the query parameters to the url.
+For our New Forms, let's use the navigate function to update the URL with the newly generated ID of the form.
 
 ```js
-navigate('/home', true );
+  import { navigate } from 'raviger';
+  
+  useEffect(() => {
+    formState.id !== props.id && navigate(`/form/${formState.id}`);
+  }, [formState.id]);
 ```
+
+The navigate function also takes 2 optional parameters: `[replace]` and `[queryParams]`. 
+
+The `replace` parameter is a boolean value which, if true, will replace the current history entry.
+```js
+navigate(url, true );
+```
+
+In our example, let's use the replace flag so that the URL is replaced rather than pushed to the history stack.
+
+The `queryParams` parameter will add the query parameters to the URL.
 
 Here, the history entry will be replaced with the new url. And therefore it wouldn't be possible to press the back button to go back to the previous page. 
 
