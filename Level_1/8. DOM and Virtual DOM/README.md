@@ -18,14 +18,9 @@ React uses a diffing algorithm to compare the Virtual DOM with the real DOM. It 
 
 When the types of root elements are the same, React will compare the children of the root elements. If the children are different, React will update the children. This is called a partial reconciliation.
 
-For Example: Here's what the Virtual DOM tree looks like for the create-react-app project that you've created:
+For Example: Here's what the Virtual DOM tree would look like
 
-![React Tree](./assets/base_tree.png)
-
-![React Tree](./assets/modified_tree.png)
-
-When you change the 
-
+![React Tree](./base_tree.png)
 
 Extra Reading : https://reactjs.org/docs/reconciliation.html
 

@@ -32,37 +32,37 @@ On top of these there is also the type `any` which is a type that can be anythin
 In Typescript Objects are used to store a collection of key/value pairs of different types. You can use an interface to define the structure of an object.
 
 ```js
-    interface Person {
-        name: string;
-        age: number;
-    }
+interface Person {
+    name: string;
+    age: number;
+}
 ```
 
 You could also define an object with one or more of it's properties being objects themselves.
 
 ```js
-    interface Address {
-            street: string;
-            city: string;
-        }
-
-    interface Person {
-        name: string;
-        age: number;
-        address: Address;
+interface Address {
+        street: string;
+        city: string;
     }
+
+interface Person {
+    name: string;
+    age: number;
+    address: Address;
+}
 ```
 Or you could also define them together if you don't plan to use the `Address` interface on it's own otherwise
 
 ```js
-    interface Person {
-        name: string;
-        age: number;
-        address: {
-            street: string;
-            city: string;
-        }
+interface Person {
+    name: string;
+    age: number;
+    address: {
+        street: string;
+        city: string;
     }
+}
 ```
 #### Arrays
 
@@ -70,16 +70,16 @@ Or you could also define them together if you don't plan to use the `Address` in
 
 Arrays in Typescript are quite straightforward. You use arrays to list of items. To declare an array you use the `[]` symbol. Arrays are stored as objects (key,value pairs) therefore, typeof array is an object. For example if you want to declare an array of strings you would write:
 ```js
-    let myArray: string[] = ["Hello", "World"];
+let myArray: string[] = ["Hello", "World"];
 ```
 
 ### Type Inference
 Typescript also infers types based on the inital value that you assign to a variable.
 
 ```ts
-    let x = 5;
-    let y = "5";
-    x = y; // Error: Type '"5"' is not assignable to type 'number'.
+let x = 5;
+let y = "5";
+x = y; // Error: Type '"5"' is not assignable to type 'number'.
 ```
 
 Here, typescript infers that the value of `y` is a string and therefore it can't be assigned to `x`, which is inferred as a number.
@@ -91,19 +91,19 @@ You may already use `node` command to run javascript files. But what if you want
 You'll need to install the typescript compiler first. You can simply run 
 
 ```
-    npm install -g typescript
+npm install -g typescript
 ```
 
 Once you have typescript installed you can run the compiler by typing
 
 ```
-    tsc index.ts
+tsc index.ts
 ```
 
 This would output an `index.js` file which you can run using `node` just like any other javascript file.
 
 ```
-    node index.js
+node index.js
 ```
 
 You'll learn more about Typescript in-depth in later lessons. 
