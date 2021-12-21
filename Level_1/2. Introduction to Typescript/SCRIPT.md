@@ -88,7 +88,7 @@ Here, typescript infers that the value of `y` is a string and therefore it can't
 
 You may already use `node` command to run javascript files. But what if you want to run typescript files?
 
-You'll need to install the type-script compiler first. You can simply run 
+You'll need to install the typescript compiler first. You can simply run 
 
 ```
     npm install -g typescript

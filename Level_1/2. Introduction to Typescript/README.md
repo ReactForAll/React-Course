@@ -1,6 +1,6 @@
 ## Set Up the Typescript Compiler
 
-You've already installed `node` to run javascript files. Similarlt to run typescript files, you'll need to install the type-script compiler first. You can simply run 
+You've already installed `node` to run javascript files. Similarly to run typescript files, you'll need to install the typescript compiler first. You can simply run 
 
 ```
     npm install -g typescript
