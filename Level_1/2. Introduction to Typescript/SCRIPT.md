@@ -14,19 +14,75 @@ You can avoid many of the common runtime errors that can occur with dynamic typi
 
 ## How do you write type-safe code in Typescript?
 
-Let's check out the basic types that you would need to know to get started. 
+Static Typing is the key to writing type-safe code. Let's check out the basic types that you would need to know to get started. 
 
-Those are String, Number, Boolean, Array, and Object. Here String is a type that is typically used to store text. Number is a type that broadly represents numbers, this includes integers and floating point numbers like `1` or `3.14`. Boolean is a type that is can be used to store `true` or `false`. These are your primitive Data Types.
+The commonly used primitive data types available in Typescript as described in the [official documentation](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#the-primitives-string-number-and-boolean) are:
 
-Now you have Arrays and Objects. Array is a type that is typically used to store a list of items `["Hello", "World]`. Object is a type that is typically used to store a collection of key/value pairs where the value can be any type like `{text: "Hello World", flag: true}`. 
+    String : typeof instance === "string" | "Hello World"
+    Number : typeof instance === "number" | 3.14
+    Boolean : typeof instance === "boolean" | true or false
 
-Now typescript makes sure that you are not mixing up types. For example, if you have a variable that is a number and you try to assign a string to the variable, you will get an error.
+On top of these there is also the type `any` which is a type that can be anything. We prefer not to use this type in our programs because it defeats the purpose of the type system, but we might use this in some places during the earlier lessons of this course.
+
+
+#### Objects
+
+    Object : typeof instance === "object" | {text: "Hello World", flag: true}
+
+In Typescript Objects are used to store a collection of key/value pairs of different types. You can use an interface to define the structure of an object.
+
+```js
+    interface Person {
+        name: string;
+        age: number;
+    }
+```
+
+You could also define an object with one or more of it's properties being objects themselves.
+
+```js
+    interface Address {
+            street: string;
+            city: string;
+        }
+
+    interface Person {
+        name: string;
+        age: number;
+        address: Address;
+    }
+```
+Or you could also define them together if you don't plan to use the `Address` interface on it's own otherwise
+
+```js
+    interface Person {
+        name: string;
+        age: number;
+        address: {
+            street: string;
+            city: string;
+        }
+    }
+```
+#### Arrays
+
+    Array : typeof instance === "object" | ["Hello", "World"]
+
+Arrays in Typescript are quite straightforward. You use arrays to list of items. To declare an array you use the `[]` symbol. Arrays are stored as objects (key,value pairs) therefore, typeof array is an object. For example if you want to declare an array of strings you would write:
+```js
+    let myArray: string[] = ["Hello", "World"];
+```
+
+### Type Inference
+Typescript also infers types based on the inital value that you assign to a variable.
 
 ```ts
-    let x: = 5;
+    let x = 5;
     let y = "5";
     x = y; // Error: Type '"5"' is not assignable to type 'number'.
 ```
+
+Here, typescript infers that the value of `y` is a string and therefore it can't be assigned to `x`, which is inferred as a number.
 
 ## Compiling and Running Typescript
 
@@ -41,7 +97,13 @@ You'll need to install the type-script compiler first. You can simply run
 Once you have typescript installed you can run the compiler by typing
 
 ```
-    tsc <file_name>
+    tsc index.ts
+```
+
+This would output an `index.js` file which you can run using `node` just like any other javascript file.
+
+```
+    node index.js
 ```
 
 You'll learn more about Typescript in-depth in later lessons. 

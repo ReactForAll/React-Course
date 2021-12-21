@@ -2,6 +2,18 @@ A compiler takes source code and produces an executable. It is the executable th
 
 Javascript is an interpreted language. It is interpreted at runtime by the browser. Meanwhile TypeScript is compiled to Javascript and this compilation acts as an additional factor of safety.
 
+#### Primitive Data Types in Typescript
+The commonly used primitive data types available in Typescript as described in the [official documentation](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#the-primitives-string-number-and-boolean) are 
+
+    String : typeof instance === "string" | "Hello World"
+    Number : typeof instance === "number" | 3.14
+    Boolean : typeof instance === "boolean" | true or false
+
+JavaScript has two primitive values used to signal absent or uninitialized value: `null` and `undefined`. TypeScript has two corresponding types by the same names. You can enable the `strictNullChecks` compiler option to get strict null checks.
+
+#### noImplicitAny
+The `noImplicitAny` compiler option is used to prevent the compiler from inferring `any` type when no type is explicitly provided. At the end of this Level, we'll see how to use this option to get rid of unintentional use of the `any` type.
+
 The basic types in Typescript are undefined, Boolean, Number, String, Array, and Object. Here undefined, Boolean, Number and String are the basic types. Meanwhile Array and Object are the complex types.
 
 It is important to understand that just like in javascript, `undefined` is different from `null`. `undefined` is a type and value. Meanwhile `null` is a value and can be assigned to any nullable type. 

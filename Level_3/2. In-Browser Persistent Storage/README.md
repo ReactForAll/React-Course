@@ -5,20 +5,6 @@ localStorage.setItem("key", "value");
 localStorage.getItem("key");
 // returns "value"
 ```
+Since you can only store strings in `localStorage`, you can use the `JSON.stringify` and `JSON.parse` APIs to convert your data to and from JSON and store the JSON string of your Objects and Arrays in `localStorage`.
 
-It is to be noted that you can only store strings in the `localStorage`. If you want to store anything else, the JSON.stringify() method can be used to convert the data into a string. This converts the array or object into a string using the JSON format.
-
-For instance:
-
-```js
-const data = [1, 2, 3];
-localStorage.setItem("key", JSON.stringify(data));
-```
-
-When you have a stringified object in the `localStorage`, you can use the JSON.parse() method to convert it back into an array or object. Since there is a possibility that there is no data stored in the `localStorage`, you can use the nullish coalescing operator (??) to check if there is data stored in the `localStorage`. The nullish coalescing operator (??) will return the value on the left if the value on the right is null or undefined.
-
-```js
-const data = JSON.parse(localStorage.getItem("key") ?? "[]");
-```
-
-Here you can the nullish coalescing operator (??) to check if there is data stored in the `localStorage` and if not, it will use the fallback value `[]` to return an empty array.
+Let's use the localStorage APIs to store our data in the browser.
