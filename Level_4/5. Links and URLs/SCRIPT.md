@@ -15,9 +15,14 @@ We can simply render the `<Link>` component and pass it the `href` attribute. Th
 You can also use `<ActiveLink>` which accepts the classes the be applied when the link is active as `activeClass` and `exactActiveClass` attributes.
 
 ```js
-    
         import { ActiveLink } from 'raviger';
-    
-        <ActiveLink href="/" exactActiveClass="text-blue-600" >Home</ActiveLink>
+        <ActiveLink href="/" activeClass="text-blue-600" >Home</ActiveLink>
         <ActiveLink href="/form" activeClass="text-blue-600" >Form</ActiveLink>
 ```
+
+Now if you open up our app, you'll see that the `/` link for the home page is active always active, this is because we're matching any URL that starts with `/`, we can go ahead and switch to `exactActiveClass` to match the exact URL, this way, the Link will be active only when the URL is exactly `/`.
+
+On the other hand for `/form` activeClass works great because we need to match `/form` as well as `/form/:id`. For the record, this would also match for `/form/:id/submission` and `/form/:id/submission/:id`.
+
+Using `<Link>`s, we can make our App use Routes and at the same time work as slick as a SPA. 
+
