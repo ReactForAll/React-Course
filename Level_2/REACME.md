@@ -1,4 +1,4 @@
-# Milestones
+# Outline
 
  - Introduction to React State
  - Component Lifecycle

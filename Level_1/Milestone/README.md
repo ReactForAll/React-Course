@@ -2,4 +2,12 @@ Through the previous lesson we've created a React App using CRA, Created a UI us
 
 For all the input fields, that we've rendered, we've used a constant `type` property set to `text`
 
-As part of this milestone, you need to update the `formFields` array to add 2 more fields `Date of Birth` and `Phone Number` for which the value of the `type` property should be `date` and `number` respectively. 
+As part of this milestone, you need to update the `formFields` array to add 2 more fields `Date of Birth` and `Phone Number`. You should use a relavant type for these 
+
+### Submission Guidelines
+
+1. Ensure your code is well-formatted. Unformatted code will be rejected without review. To format your code, you can use Prettoer. When submitting, attach a link to the exact folder in your Github repo with the App.tsx file.
+2. The `<input>` tags should be styled with TailwindCSS uniquely and creatively.
+3. The Final Output Should Look something like this:
+
+![](https://link)

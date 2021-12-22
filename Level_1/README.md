@@ -1,4 +1,4 @@
-# Milestones
+# Outline
 
  - Setting up Development Environment
  - CRA - The Create React App

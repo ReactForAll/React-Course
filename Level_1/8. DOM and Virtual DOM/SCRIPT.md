@@ -25,12 +25,5 @@ When the types of root elements are the same, React will compare the children of
 
 For Example: Here's what the Virtual DOM tree looks like for the create-react-app project that you've created:
 
-![React Tree](./assets/base_tree.png)
-
-![React Tree](./assets/modified_tree.png)
-
-When you change the 
-
-
-Extra Reading : https://reactjs.org/docs/reconciliation.html
+At the end of this lesson you can head to https://reactjs.org/docs/reconciliation.html to read more about the reconciliation process.
 
