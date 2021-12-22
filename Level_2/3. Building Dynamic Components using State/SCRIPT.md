@@ -17,7 +17,7 @@ function App() {
 }
 ```
 
-You may note that we may have not specified the type state because the React infers the type of the state based on the initial state value that we have passed. 
+You may note that we haven't specified the type for our state here because the Typescript infers the type of the state based on the initial state value that we have passed. 
 
 Now that we have made the `formFields` into a state variable, let's add a button for the user to make additional form fields.
 
