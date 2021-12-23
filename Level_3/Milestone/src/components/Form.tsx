@@ -1,31 +1,52 @@
 import React, { useEffect, useRef } from "react";
-import { formData, formField } from "../types/form";
-import {
-  getInitialState,
-  saveFormData,
-  updatedForms,
-} from "../utils/StorageUtils";
 
-const intialFormFields: formField[] = [
+interface formData {
+  id: number;
+  title: string;
+  formFields: formField[];
+}
+
+interface formField {
+  id: number;
+  label: string;
+  value: string;
+}
+
+const intialFormFields = [
   { id: 1, label: "First Name", value: "" },
   { id: 2, label: "Last Name", value: "" },
   { id: 3, label: "Email", value: "" },
 ];
 
-export default function Form(props: {
-  formId: number;
-  closeFormCB: () => void;
-}) {
-  const [formState, setFormState] = React.useState<formData>(
-    getInitialState(
-      {
-        id: Number(new Date()),
-        title: "",
-        formFields: intialFormFields,
-      },
-      props.formId
-    )
+const getLocalForms = () => {
+  const localForms = localStorage.getItem("savedForms");
+  if (localForms) {
+    return JSON.parse(localForms);
+  }
+  return [];
+};
+
+const getInitialState = () => {
+  const localForms = getLocalForms();
+  if (localForms.length > 0) {
+    return localForms[0];
+  }
+  return { id: Number(new Date()), title: "", formFields: intialFormFields };
+};
+const saveFormData = (formData: formData) => {
+  localStorage.setItem("formData", JSON.stringify(formData));
+};
+
+const updatedForms = (form: formData) => {
+  const localForms = getLocalForms();
+  const filteredLocalForms = localForms.filter(
+    (formFilter: formData) => formFilter.id !== form.id
   );
+  return JSON.stringify([...filteredLocalForms, form]);
+};
+
+export default function Form(props: { closeFormCB: () => void }) {
+  const [formState, setFormState] = React.useState<formData>(getInitialState());
   const [newField, setNewField] = React.useState("");
 
   const ref = useRef<HTMLInputElement>(null);
@@ -40,7 +61,7 @@ export default function Form(props: {
 
   useEffect(() => {
     let timeout = setTimeout(() => {
-      saveFormData(formState);
+      localStorage.setItem("savedForms", updatedForms(formState));
     }, 1000);
     return () => clearTimeout(timeout);
   }, [formState]);
