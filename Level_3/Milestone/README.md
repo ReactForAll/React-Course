@@ -1,11 +1,14 @@
 
-By now we have a form builder that allows us to to create our own custom form of text inputs! 
+By now we have a form builder that allows us to to create our own custom form of text inputs! We have also updated our data structure or types to be capable of storing multiple forms. Our only limitation at this point is, we don't have a screen that lists all available forms.
 
-- Create a Custom Hook named `useLocalStorage`
-- Your Custom Hook should receive 2 arguments, the initial value of the state and the key to be used for localStorage.
-- Create a State inside the `useLocalStorage` hook and the hook should return the state, setState as an array
-- If the localStorage(key) is null, then the state should be initialized with the initialState received as the argument of the hook and localStorage(key) if it's not null.
-- In your App.tsx, use useLocalStorage instead of useState for `items` and `itemsDone`
-- In your `useLocalStorage` hook, there should be a `useEffect` that saves the value of it's state to localStorage using `localStorage.setItem` whenever the value of the state changes.
+For this Milestone you should
+- Implement a Component that lists all forms available in the localStorage
+- Make sure that the form list is updated when a new form is saved
+- Remove the hardcoded formId from the Form Component
+- The List of Forms should have 2 buttons, one to open the form and then edit it, and one to delete the form
+- Revert the hack in the `getInitialState` function that currently returns the first form in the localStorage so that all forms can be viewed
 
-> You may find implementations of useLocalStorage with a quick Google Search. Make sure that you Ignore Existing Solutions when you complete this Milestone.
+### Submission Guidelines
+
+1. Ensure your code is well-formatted. Unformatted code will be rejected without review. To format your code, you can use Prettier. When submitting, attach a link to the exact folder in your Github repo with the App.tsx file.
+2. The List of Form Items should be styled with TailwindCSS uniquely and creatively.

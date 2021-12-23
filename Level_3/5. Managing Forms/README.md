@@ -14,6 +14,7 @@ interface formData {
 
 First off, we'd have to change our functions that we use to load and save forms. Currently our `initialState` is a simple statement that returns the form from the `localStorage` if it exists and our default form if it doesn't. Let's change that and build a more comprehensive function that can look for the right form from the localStorage, where we'd now be storing multiple forms.
 
+Since we don't have a way to list our available forms at the moment, let's take the first form in our `localStorage` to test our setup!
 
 ```js
 const getLocalForms = () => {
@@ -25,7 +26,18 @@ const getLocalForms = () => {
 };
 
 const getInitialState = (formId?: number) => {
-  console.log("Initializing State for", formId);
+
+  const localForms = getLocalForms();
+  const filteredLocalForms = localForms.filter(
+    (formFilter: formData) => formFilter.id !== form.id
+  );
+  return JSON.stringify([...filteredLocalForms, form]);
+};
+```
+
+<!-- Actual Implementation for getInitialState -->
+<!-- ```js
+const getInitialState = (formId?: number) => {
   if (formId) {
     const localForms = getLocalForms();
     const result = localForms.find((form: formData) => form.id === formId);
@@ -35,30 +47,40 @@ const getInitialState = (formId?: number) => {
     return { id: Number(formId), title: "", formFields: intialFormFields };
   }
   return { id: Number(new Date()), formFields: intialFormFields };
-};
-```
+}
+``` -->
+<!-- End of Actual Implementation -->
 
 Here, we've encapsulated the logic of fetching all forms from our localStorage into a separate funciton and we have a function that can build the initialState given a formId separately. Here we've used the `?` operator in the function's arguments to indicate that the formId is optional.
 
 Now we'd also have to take care of updating our localStorage when we save a form. We'll need to add a new function to update our localStorage.
 
 ```js
-    const updatedForms = (form: formData) => {
-    const localForms = getLocalForms();
-    const filteredLocalForms = localForms.filter(
-        (formFilter: formData) => formFilter.id !== form.id
-    );
-    return JSON.stringify([...filteredLocalForms, form]);
-    };
+const updatedForms = (form: formData) => {
+const localForms = getLocalForms();
+const filteredLocalForms = localForms.filter(
+    (formFilter: formData) => formFilter.id !== form.id
+);
+return JSON.stringify([...filteredLocalForms, form]);
+};
 
-    useEffect(() => {
-        let timeout = setTimeout(() => {
-        localStorage.setItem("savedForms", updatedForms(formState));
-        }, 1000);
-        return () => clearTimeout(timeout);
-    }, [formState]);
+useEffect(() => {
+    let timeout = setTimeout(() => {
+    localStorage.setItem("savedForms", updatedForms(formState));
+    }, 1000);
+    return () => clearTimeout(timeout);
+}, [formState]);
 ```
 
 With this helper we can select the form from `localStorage` and update it with the changes!
 
 We can clear the localStorage from our browser's dev tools to get started!
+
+Let's also update our state to use the getInitialState function to get the form we want to load.
+
+```js
+const [formState, setFormState] = useState(getInitialState());
+```
+
+Now we can see that the Form is being successfully saved and then loaded from the localStorage. We now have a data structure that we can use to store multiple forms.
+
