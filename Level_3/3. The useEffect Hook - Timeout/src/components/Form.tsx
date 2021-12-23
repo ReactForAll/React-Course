@@ -1,4 +1,5 @@
 import React from "react";
+
 interface formField {
   id: number;
   label: string;
@@ -11,13 +12,14 @@ const formFields = [
   { id: 3, label: "Email", value: "" },
 ];
 
-const intialState = localStorage.getItem("formState")
-  ? JSON.parse(localStorage.getItem("formState") || "")
+const intialState = localStorage.getItem("formData")
+  ? JSON.parse(localStorage.getItem("formData") || "[]")
   : formFields;
 
-function saveFormData(formData: formField[]) {
+const saveFormData = (formData: formField[]) => {
   localStorage.setItem("formData", JSON.stringify(formData));
-}
+};
+
 export default function Form(props: { closeFormCB: () => void }) {
   const [formState, setFormState] = React.useState<formField[]>(intialState);
   const [newField, setNewField] = React.useState("");
@@ -30,6 +32,7 @@ export default function Form(props: { closeFormCB: () => void }) {
         >
           Close Form
         </button>
+
         <button
           onClick={(_) => saveFormData(formState)}
           className="bg-gray-200 text-gray-800 border-2 border-gray-400 rounded-lg p-2 m-2 w-full"

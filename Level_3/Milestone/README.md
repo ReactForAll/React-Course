@@ -1,5 +1,5 @@
 
-Now that you've learned to use localStorage and the useEffect Hooks. Start out with the existing application, let's create a wrapper around localStorage with a custom hook.
+By now we have a form builder that allows us to to create our own custom form of text inputs! 
 
 - Create a Custom Hook named `useLocalStorage`
 - Your Custom Hook should receive 2 arguments, the initial value of the state and the key to be used for localStorage.

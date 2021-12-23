@@ -4,7 +4,7 @@ Through the previous lessons, I've mentioned that React State is asynchronous. T
 
 Failure to realize this, you can end up with a situation where you're trying to update a state that's already being updated. For instance, If you update a state twice in a row, you probably won't see the behavior you expect.
 
-Now how do we tackle this? Well, until now we have been modifying the state by passing the new value that we'd like the state to have. This works great when you are specifying an absolute value, butt when you're setting a value that's relative to the current value, you might end up with a situation where you're trying to update a state that's already being updated. You're more prone to this problem if you're updating the same state for multiple reasons. In such scenarios, you can pass a function or a closure to the setState function like this:
+Now how do we tackle this? Well, until now we have been modifying the state by passing the new value that we'd like the state to have. This works great when you are specifying an absolute value, but when you're setting a value that's relative to the current value, you might end up with a situation where you're trying to update a state that's already being updated. You're more prone to this problem if you're updating the same state for multiple reasons. In such scenarios, you can pass a function or a closure to the setState function like this:
 
 ```js
 setFormState(prevState => ([
@@ -20,3 +20,11 @@ A closure is a function with no name. It's a way to pass a function as an argume
 ### State is immutable.
 
 Another common pitfall in state management is forgetting the fact that state should be treated as immutable. This means that you should never mutate the state, instead you should always use a new instance/value to update the state.
+
+Whenever you update the state, you need to make sure that you use the `setState` function to make the required changes.
+
+```js
+setState(newValue)
+```
+
+Even though trying to mutate the state might seem to work on some occasions, its mearly an illusion because once you start doing that all hell would break loose once your application gets bigger.

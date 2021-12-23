@@ -11,12 +11,29 @@ localStorage.setItem("key", "value");
 So let's create a function to save our form data to the `localStorage`. Since we'll be storing our Array of `formFields` in the `localStorage`, we'll need to convert it to a JSON string. We'll be using the `JSON.stringify` method to do this.
 
 ```js
-function saveFormData(formData) {
+const saveFormData = (formData) => {
   localStorage.setItem("formData", JSON.stringify(formData));
+};
+```
+When we define this function, typescript would want us to specify what is the type of formData that we are receiving here. Our useState had been inferring the type from the initial value till now. So, lets define the type for our `formFields` using an interface.
+
+```js
+interface formField {
+  id: number;
+  label: string;
+  value: string;
 }
+```
+Once we define this, we can simply specify the type of the argument like:
+
+```js
+const saveFormData = (formData: formField[]) => {
+  localStorage.setItem("formData", JSON.stringify(formData));
+};
 ```
 
 Now we can add a button to our form to save the data to the `localStorage`.
+
 ```js
     <button
         onClick={(_) => saveFormData(formState)}
@@ -33,8 +50,8 @@ Great! looks like we've successfully saved our data to localStorage. Now let's u
 Using this method, you can store data that is stored in the browser and load it into the state when the App is loaded.
 
 ```js
-const intialState = localStorage.getItem("formState")
-  ? JSON.parse(localStorage.getItem("formState") || "")
+const intialState = localStorage.getItem("formData")
+  ? JSON.parse(localStorage.getItem("formData") || "")
   : formFields;
 ```
 
@@ -44,17 +61,9 @@ We'll also need to update the state to use this `initialState` value.
   const [formState, setFormState] = React.useState(intialState);
 ```
 
-Now that seems to be giving us a lot of Type Errors. This is because we're now taking the initial value from the localStorage, typescript can't tell what's the type of the state. Before when we were specifying the initial value of the state as an array of objects, typescript knew what the type of the state was.
-
-So in order to solve this, let's define our `formField` type and ask our useState to use this.
+Now that seems to be giving us a lot of Type Errors. This is because we're now taking the initial value from the localStorage and Typescript can no longer infer what's the type of the state. So let's specify it's type as well:
 
 ```js
-interface formField {
-  id: number;
-  label: string;
-  value: string;
-}
-
 const [formState, setFormState] = React.useState<formField[]>(intialState);
 
 ```
