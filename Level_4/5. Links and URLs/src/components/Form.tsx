@@ -1,3 +1,4 @@
+import { navigate } from "raviger";
 import React, { useEffect, useRef } from "react";
 import { formData, formField } from "../types/form";
 import {
@@ -12,10 +13,7 @@ const intialFormFields: formField[] = [
   { id: 3, label: "Email", value: "" },
 ];
 
-export default function Form(props: {
-  formId: number;
-  closeFormCB: () => void;
-}) {
+export default function Form(props: { formId?: number }) {
   const [formState, setFormState] = React.useState<formData>(
     getInitialState(
       {
@@ -45,15 +43,19 @@ export default function Form(props: {
     return () => clearTimeout(timeout);
   }, [formState]);
 
+  useEffect(() => {
+    formState.id !== props.formId && navigate(`/form/${formState.id}`);
+  }, [formState.id]);
+
   return (
     <div className="flex flex-col items-center">
       <div className="flex">
-        <button
-          onClick={props.closeFormCB}
+        <a
+          href={`/form`}
           className="bg-gray-200 text-gray-800 border-2 border-gray-400 rounded-lg p-2 m-2 w-full"
         >
           Close Form
-        </button>
+        </a>
 
         <button
           onClick={(_) => saveFormData(formState)}

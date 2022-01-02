@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Logo from "../logo.svg";
 import { formData } from "../types/form";
-import { getLocalForms } from "../utils/storageUtils";
+import { getLocalForms } from "../utils/StorageUtils";
 
 const savedForms: formData[] = getLocalForms();
 export default function Home() {
@@ -19,18 +19,6 @@ export default function Home() {
           <span className="font-bold text-gray-800">React Typescript</span>{" "}
           Course{" "}
         </p>
-      </div>
-      <h1 className="text-2xl font-bold text-gray-800">Saved Forms</h1>
-      <div className="flex flex-wrap items-center justify-center p-4">
-        {savedForms
-          .map((form) => (
-            <a
-              href={`/form/${form.id}`}
-              className="bg-gray-200 shadow-lg rounded-xl p-4 m-4"
-            >
-              <h2 className="text-xl">{form.title}</h2>
-            </a>
-          ))}
       </div>
     </div>
   );
