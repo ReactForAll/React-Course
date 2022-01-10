@@ -156,7 +156,7 @@ And there we have a Type Error! Since we haven't specified the type for our `ref
 const ref = useRef<HTMLInputElement>(null);
 ```
 
-And yet again we have a Type Error! Now, the compiler is telling us that the object `ref.current` is possibly `null`. In order to overcome this, we can use Javascript's Optional Chaining feature that allows us to check if its null before calling the `.focus` function.
+And yet again we have a Type Error! Now, the compiler is telling us that the object `ref.current` is possibly `null`. This is because we initialize the ref to `null` and therefore the type of our ref is `HTMLInputElement | null`. So our compiler is telling us that the `ref` can possible be null. In order to overcome this, we can use Javascript's Optional Chaining feature that allows us to check if its null before calling the `.focus` function.
 
 ```js
 useEffect(() => {

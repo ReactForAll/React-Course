@@ -9,7 +9,7 @@ Since we already have a function that could create our initial state based on a 
 ```js
   "/form/:id": ({ id }: any) => <Form id={Number(id)} />,
 ```
-Now we would also need to refactor the Open Form button, to work with URLs instead of the state variable. Here, when we're routing with Path Params, we can actually eliminate the State we were using to store what form is open right now!
+Now we would also need to refactor the Open Form button, to work with URLs instead of the state variable. Here, when we're routing with Path Params, we can actually eliminate the state we were using to store what form is open right now! Instead the router manages the state for us. We can receive the state from the router and use it to render the correct form. 
 
 So let's replace our button to Open Form with an `<a>` tag that leads to the `/form/:id` URL.
 

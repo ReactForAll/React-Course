@@ -1,18 +1,10 @@
-# Setting up the Development Environment
-
-- [Setting up the Development Environment](#setting-up-the-development-environment)
-  - [Getting Started](#getting-started)
-  - [Install NVM](#install-nvm)
-      - [For Mac](#for-mac)
-      - [For Ubuntu](#for-ubuntu)
-      - [All Users](#all-users)
-  - [Install VSCode | IDE](#install-vscode--ide)
-  - [Install VSCode Extensions](#install-vscode-extensions)
-  - [Install React Dev Tools](#install-react-dev-tools)
-
 ## Getting Started
 
-We recommend using a Linux or Mac OS X machine for development. If you're on Windows you can use WSL (Windows Subsystem for Linux) to run Linux commands on Windows. 
+It is recommended that you use a Linux or Mac OS X machine for development. If you're on Windows you can use WSL (Windows Subsystem for Linux) to run Linux commands on Windows. 
+
+If you're running macOS, I assume that you have homebrew installed. If not, you can install it by following the instructions on the following link: https://brew.sh/
+
+You can use the following instructions to setup your development environment. Optionally you could follow the video lesson in this chapter to follow along with me as I setup my dev environment.
 
 ## Install NVM
 
@@ -35,7 +27,13 @@ On Ubuntu/WSL you can install NVM by running the following command:
 
 #### All Users
 
-Once you have NVM installed, you can run the following command to install the latest LTS version of Node.js:
+Once you have installed NVM, you can verify that it is installed by running the following command:
+
+```
+    nvm --version
+```
+
+Now you can run the following command to install the latest LTS(Long Term Support) version of Node.js:
 
 ```
     nvm install --lts
@@ -53,7 +51,7 @@ Your version might vary slightly.
 
 ## Install VSCode | IDE
 
-We reccommend you to use [VSCode](https://code.visualstudio.com/) as your development environment, but you can use any other editor or IDE you like. Other recommended IDEs for React include:  
+We reccommend you to use [VSCode](https://code.visualstudio.com/) as your development environment, but you can use any other editor or IDE you like. Alternative IDEs for developing React include:  
 - [WebStorm](https://www.jetbrains.com/webstorm/)
 - [Atom](https://atom.io/)
 - [Sublime Text](https://www.sublimetext.com/) etc.

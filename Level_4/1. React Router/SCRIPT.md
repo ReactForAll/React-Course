@@ -52,7 +52,7 @@ export default function AppRouter() {
   const routeResult = useRoutes(routes);
   return (
     <AppContainer>{routeResult}</AppContainer> || (
-      <div className="h-screen flex items-center"> </div>
+      <div className="h-screen flex justify-center items-center"> <h1>404</h1> </div>
     )
   );
 }
@@ -100,4 +100,4 @@ Since we've moved our navigation bar to the Header, let's change our Home Compon
 Now we have configured our router for 2 different routes, `/` and `/form`. We've created a simple Navigation Bar, common to all our pages, that links to the `/` and `/form` routes.
 
 
-Here we have the `useRoutes` function which takes in the URLs that we've defined and what react component we want to load for each URL. This function underneath watches the URL and changes the React components that are mounted based on the URL as if the URL was a state! 
+Here we have the `useRoutes` function which takes in the URLs that we've defined and what react component we want to load for each URL. This function underneath watches the URL and changes the React components that are mounted based on the URL. This is because our router is configured to maintain the state of the URL and load the correct component based on the URL.

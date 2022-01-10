@@ -3,15 +3,17 @@ In the previous lesson, we refactored our application to make it capable of mana
 
 QueryParams are the GET parameters for a page which looks like `yourapp.com/page?search="Query"`. To access the `queryParams` you need to use the useQueryParams Hook. 
 
-Before we jump in let's add a title to our forms so that they are easier to find from the home screen. In order to do this, we first head to our type file at `types\form.ts` and add a title field of type `string` to our `formData` type. Once you do this, you can go ahead and create an input tag to accept our title. Since we are storing our entire `formData` You can also go ahead and refactor the listing in our `<Home>` component to display the title of the form.
-
 Now assuming we have large number of forms, we might need a way to filter out our forms. So, lets build a simple search that would filter our saved forms based on a keyword. Let's use `queryParams` to specify the search keyword so that it is evident in the URL.
 
-We can use the `useQueryParams` hook to access the query params.
-
+We can use the `useQueryParams` hook to access the query params. The useQueryParams hook returns an array similar to the `useState` hook. The first element is the current queryParams as an object. The second element is a function that can be used to update the queryParams. This would look like:
 
 ```js
+const [queryParams, setQueryParams] = useQueryParams();
+```
 
+Now to make our lives easier we can use destructuring to access the queryParams that we need. We are looking for the `search` query param, therefore we can destructure the first parameter of the array like:
+
+```js
 const [{ search }] = useQueryParams();
 ```
 
@@ -29,13 +31,31 @@ And let's add a form with an input text so that we can search for our forms.
       >
         Search
       </label>
-      <input
-        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-        id="grid-search"
-        name="search"
-        type="search"
-        placeholder="Search"
-      />
+      <div className="flex">
+        <input
+          className="appearance-none flex-1 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          id="grid-search"
+          name="search"
+          type="search"
+          placeholder="Search"
+        />
+        <button
+          type="submit"
+          className="bg-gray-200 text-gray-700 border-2 border-gray-400 rounded-lg p-2 m-2 w-full"
+        >
+          <svg
+            className="h-6 w-6"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </form>

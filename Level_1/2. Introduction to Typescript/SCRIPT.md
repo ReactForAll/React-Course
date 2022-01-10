@@ -12,6 +12,27 @@ It is considerably easier to refactor code when you have a compiled language, es
 
 You can avoid many of the common runtime errors that can occur with dynamic typing by using the compiler. Phantom runtime errors like 'undefined is not a function' are very common in Javascript.
 
+## Compiling and Running Typescript
+
+You may already use `node` command to run javascript files. But what if you want to run typescript files?
+
+You'll need to install the typescript compiler first. You can simply run 
+
+```
+npm install -g typescript
+```
+
+Once you have typescript installed you can run the compiler by typing
+
+```
+tsc index.ts
+```
+
+This would output an `index.js` file which you can run using `node` just like any other javascript file.
+
+```
+node index.js
+```
 ## How do you write type-safe code in Typescript?
 
 Static Typing is the key to writing type-safe code. Let's check out the basic types that you would need to know to get started. 
@@ -84,26 +105,6 @@ x = y; // Error: Type '"5"' is not assignable to type 'number'.
 
 Here, typescript infers that the value of `y` is a string and therefore it can't be assigned to `x`, which is inferred as a number.
 
-## Compiling and Running Typescript
 
-You may already use `node` command to run javascript files. But what if you want to run typescript files?
-
-You'll need to install the typescript compiler first. You can simply run 
-
-```
-npm install -g typescript
-```
-
-Once you have typescript installed you can run the compiler by typing
-
-```
-tsc index.ts
-```
-
-This would output an `index.js` file which you can run using `node` just like any other javascript file.
-
-```
-node index.js
-```
 
 You'll learn more about Typescript in-depth in later lessons. 

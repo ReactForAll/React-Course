@@ -4,9 +4,9 @@ Through this course you will learn how build single-page web apps in React Types
 
 Now in order to get started, let's setup a development environment for you to start your journey building React applications.
 
-We recommend that you have a Linux or Mac System when you follow this course. If you’re on a Windows System, we recommend you install WSL or Windows Subsystem for Linux (WSL) so that you have a Linux environment to work with. If this is the case, you can follow the instructions for linux throughout this course.
+If you're on a Mac, I'll be assuming that you have homebrew installed.
 
-If you're running macOS, I assume that you have homebrew installed. If not, you can install it by following the instructions on the following link: https://brew.sh/
+If you're on Windows, I'll be assuming that you have WSL installed. 
 
 I'll be using MacOS for this course.
 
@@ -45,7 +45,8 @@ If you see the NVM version showing up here, it means you're nvm installation is 
 
 ### Install NodeJS
 
-We'll use NodeJS version 14.18.2 for this course, because it's the LTS (Long Term Support) version right now. Even if you're following this course at a time when a newer version is available, it is recommended that you use the same version for this course.
+<!-- We'll use NodeJS version 14.18.2 for this course, because it's the LTS (Long Term Support) version right now. Even if you're following this course at a time when a newer version is available, it is recommended that you use the same version for this course. -->
+
 
 With nvm installed, you can install NodeJS by running the following command:
 

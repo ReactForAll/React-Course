@@ -72,7 +72,7 @@ Now finally you can replace your the content in your `index.css` file with the f
 @tailwind utilities;
 ```
 
-And alas! your tailwind is now set up all perfectly! With the tailwind-intellisense plugin that we installed in the previous lesson, you'd also get suggestions with tailwind classes that you can use to style your app!
+And there you go! your tailwind is now set up all perfectly! With the tailwind-intellisense plugin that we installed in the previous lesson, you'd also get suggestions with tailwind classes that you can use to style your app!
 
 That's all the setup you need to get started with React, Typescript and TailwindCSS. 
 
@@ -90,7 +90,9 @@ Since we'll be solely using TailwindCSS for styling for the remainder of this co
 
 You can also go ahead and delete the `App.css` file and remove it's import from the `App.tsx` file since we won't be needing it anymore.
 
-<!-- Open Google Forms to explain what we're building -->
+<!-- Open the end product to explain what we will be building -->
+
+We will go through a short demo of the end product and show Typeform as the production version of a similar product.
 
 Through this course, we'd be building a form builder like Google Forms!
 

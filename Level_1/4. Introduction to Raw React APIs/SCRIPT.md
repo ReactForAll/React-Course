@@ -6,6 +6,8 @@ You can head straight to the `index.tsx` file. This is the Entry Point for your 
 ReactDOM.render(<h1>Hello World!</h1>, document.getElementById('root'));
 ```  
 
+I'll be using the terms DOM and virtual DOM a lot in this lesson. When I say DOM, I'm referring to changes that you see in the Browser and when I say ReactDOM or Virtual DOM, I'm talking about us telling react to do something. We will learn more about the DOM and the Virtual DOM at a later lesson in this level.
+
 Now when you run our app using `npm start`, and open it up in your browser, you'll see a simple HTML page that says `Hello World!`. Now if you open up the developer tools in your browser and inspect the HTML that is being rendered, you would see an  `<h1>Hello World!</h1>` inside the <div id="root">. Now if you've used vanilla Javascript in the past, you might notice that what has happened here is quite similar to what would happen if you invoked the `.setInnerHTML` method on a DOM element, like:
 
 ```js

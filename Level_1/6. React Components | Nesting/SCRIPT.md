@@ -4,7 +4,7 @@ React allows us to break down the problem of building a complex application into
 
 Let's take a look at our React project and try to break it into smaller components.
 
-First off, let's take our Header section and break it down into a component.
+First off, let's take the div that represents the image and the heading in our app and break it down into a component. Let's call it our Header component.
 
 ```js
   function Header {
@@ -63,11 +63,10 @@ Now in order to render some input tags based on this, you can simply use the `.m
 
 ```js
   {formFields.map((field) => (
-    <input
-      className="border-2 border-gray-200 rounded-lg p-2 m-2 w-full"
-      type="text"
-      placeholder={field}
-    />
+    <div className="flex flex-col">
+      <label className="w-1/4 text-right font-bold">{field}</label>
+      <input className="border-2 border-gray-200 rounded-lg p-2 m-2 w-full" type="text" />
+    </div>
   ))}
 ```
 
@@ -86,13 +85,15 @@ const formFields = [
 Now, we can update the array map to ouse a key prop when it is rendering.
 ```js
   {formFields.map((field) => (
-    <input
-      key={field.id}
-      className="border-2 border-gray-200 rounded-lg p-2 m-2 w-full"
-      type="text"
-      placeholder={field.label}
-    />
+    <div key={field.id} className="flex flex-col">
+      <label className="w-1/4 text-right font-bold">{field.label}</label>
+      <input className="border-2 border-gray-200 rounded-lg p-2 m-2 w-full" type="text" />
+    </div>
   ))}
 ```
 
 You would learn more about how React uses the key prop for renrendering in the coming lessons.
+
+You may have noticed that we're wrapping our Input and Label components in a div. This is because each React Node can have only one parent. So, we need to wrap our input and label components in a div. In the next lesson, we'll learn a little trick that React offers that will help us avoid such a wrapper div.
+
+Read More https://www.smashingmagazine.com/2018/06/placeholder-attribute/
