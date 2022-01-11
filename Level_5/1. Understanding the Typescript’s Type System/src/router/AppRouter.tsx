@@ -26,7 +26,6 @@ const routes = {
 
 export default function AppRouter() {
   const routeResult = useRoutes(routes);
-  console.log("Rendering", routeResult);
   return (
     <AppContainer>{routeResult}</AppContainer> || (
       <div className="h-screen flex items-center"> </div>

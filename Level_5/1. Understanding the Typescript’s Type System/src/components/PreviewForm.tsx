@@ -22,7 +22,10 @@ const getInitialState = (formId: number, questionId: number) => {
       (field) => field.id === questionId
     );
   } else {
-    console.log("Loading First Question");
+    console.log(
+      "Loading First Question",
+      `/form/${formId}/preview/${form.formFields[0].id}`
+    );
     questionIndex = 0;
     navigate(`/form/${formId}/preview/${form.formFields[0].id}`);
   }
@@ -45,6 +48,7 @@ export default function PreviewForm(props: PreviewFormProps) {
     getInitialState(props.formId, props?.questionId || 0)
   );
   useEffect(() => {
+    previewState.form.id === 0 && console.log("Form not found");
     previewState.form.id === 0 && navigate("/");
     const questionIndex = previewState.form.formFields.findIndex(
       (field) => field.id === props.questionId
@@ -68,7 +72,7 @@ export default function PreviewForm(props: PreviewFormProps) {
       navigate(
         `/form/${previewState.form.id}/preview/${previewState.form.formFields[0].id}`
       );
-    } else if (!questionIndex || !props.questionId) {
+    } else if (!questionIndex && props.questionId) {
       navigate(`/`);
     }
   }, [props.questionId]);

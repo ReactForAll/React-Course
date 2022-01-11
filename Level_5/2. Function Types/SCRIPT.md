@@ -1,44 +1,64 @@
-In the previous lesson, we learned how we can define static typed variables. We can also define static typed functions. A static typed function has a defined type for each argument and the return type of the function. This brings a lot more clarity on what a function does. When you create a function that pads a string, you can't pass anything other than a string. Nor can you pass in undefined. This means that you don't have to handle undefined or other types within the function.
+Given that, we have extensively used functional components to build our app, it is very important for us to understand how to build statically typed functions. In React, since we are building components to which we pass only props. Defining an object representing the props is usually all we need. We have seen this in our `Header` component where we were passing the `title` string to our component.
 
 ```js
-// Function that takes a string and returns a string
-function sayHello(name: string): string {
-  return `Hello, ${name}!`;
+export default function Header(props: { title: string }) {
+  ...
 }
 ```
 
-If you look at the above function, we've specified that it takes a string as an argument and returns a string. We can specify the type of each argument and the return type of the function.
-
-Now that we've looked at how to define a function with static typing, let's take a look at passing functions as parameters. Or a function that returns a function.
-
-If you're passing a function A that takes X and returns Y into a function B, you can specify the type of function B as
+This means that, if we have optional props that we need to pass into our component, we just need to specify that specific property as optional like: 
 
 ```js
-function B(funcA: (x: X) => Y): void {
-  // ...
+export default function Header(props: { title: string, subtitle?: string }) {
+  ...
 }
 ```
 
-Or taking a more realistic example:
+We can see that our form-builder is currently always receiving the form id. Let's move the logic of generating the form id to inside the form-builder component. Let's make a new URL at `/form/new` and render our form-builder without the now optional form id. Now we can also change the URL to create new forms to accomodate this change. 
+
+We have also seen that we need to specify the type when we are passing children to our components. We've seen this in our `AppContainer` component.
 
 ```js
-// Function that takes a void function and returns a string
-function sayHello(getText: () => string): string {
-  const text = getText();
-  return `Hello, ${text}!`;
+export default function AppContainer(props: { children: React.ReactNode }) {
+  ...
 }
 ```
 
-If you look at the above function, we've specified that it takes a function that returns a string as an argument and returns a string. This is how you can specify the type of a function.
+In our react components, the return type is almost always implicit as we are returning jsx. On our normal functions though, we might need to specify the types at times. For instance, in our `getLocalForms` function, since we are parsing the JSON, we'll need to specify that the localStorage would be parsed to receive an array of form data. Since the `JSON.parse` function returns an `any` type this has unintentionally broken our type safety.
 
-Similarly you can also define the type of a function that returns a function.
+Once we fix this and update our function definition, to explicitly specify the type of the return value, we can see how our `findForm` function is flawed. We haven't been accounting for the `findForm` function to return `undefined` if the form id is not found. Now the compiler starts to guide us showing you in exactly how many places we need to fix this. 
+
+We can fix this by navigating out of the preview page if the form is not found and using the nullish coalescing operator to coalesce the form data with a default value, since the `navigate` is asynchronous and we need to return an initial value for our state in the meantime.
+
+You can also define the types for callback functions within an interface just like any other function. For instance, an `onChange` callback function would be defined as:
 
 ```js
-// Function that returns a void function that returns a string
-function sayHello(getText: () => string): () => string {
-    const text = getText();
-    return () => `Hello, ${text}!`;
+interface InputProps {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 ```
-Now this looks quite complicated, so let's take a closer look. We can see that the function that we're returning is a function that takes no arguments and returns a string. This is specified as `() => string` as the return type of the function sayHello. Now sayHello also takes a function as an argument. This is specified as `(() => string)`, as the getText function should take no arguments and return a string.
 
+Let's abstract our input components for our form builder to make it a bit more reusable.
+
+```js
+export default function FormInput(props: {
+  label: string;
+  value?: string;
+  onChange?: (value: string) => void;
+}) {
+  return (
+    <div className="flex flex-col w-full p-6">
+      <span className="text-md text-slate-700 p-2">{props.label}</span>
+      <input
+        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        type="text"
+        placeholder="Enter your answer"
+        value={props.value}
+        onChange={(e) => props.onChange && props.onChange(e.target.value)}
+      />
+    </div>
+  );
+}
+```
+
+Now our Form Input has been abstracted into a separate component and this would allow us to make this more sophisticated in the next lessons.

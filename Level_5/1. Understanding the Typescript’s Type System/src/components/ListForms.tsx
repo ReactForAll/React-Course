@@ -69,7 +69,7 @@ export default function ListForms() {
                 <div className="flex items-center">
                   <a
                     href={`/form/${form.id}`}
-                    className="bg-gray-200 text-gray-800 border-2 border-gray-400 rounded-lg p-1 m-2"
+                    className="bg-gray-200 text-gray-800 border-2 border-gray-400 rounded-lg p-1 m-2 text-center"
                   >
                     Open Form
                   </a>

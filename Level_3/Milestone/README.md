@@ -12,3 +12,4 @@ For this Milestone you should
 
 1. Ensure your code is well-formatted. Unformatted code will be rejected without review. To format your code, you can use Prettier. When submitting, attach a link to the exact folder in your Github repo with the App.tsx file.
 2. The List of Form Items should be styled with TailwindCSS uniquely and creatively.
+3. Make sure that the app builds with no warnings in the console.

@@ -10,6 +10,7 @@ For this milestone you need to
 ### Submission Guidelines
 
 1. Ensure your code is well-formatted. Unformatted code will be rejected without review. To format your code, you can use Prettier. When submitting, attach a link to the exact folder in your Github repo with the App.tsx file.
-2. All links within the App should use `<Link>` instead of `<a>` tags.
+2. Make sure that the app builds with no warnings in the console.
+3. All links within the App should use `<Link>` instead of `<a>` tags.
 
 
