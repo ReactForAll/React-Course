@@ -1,6 +1,6 @@
 Until now, we have been glancing through the use of types in TypeScript. We have used explicit type declarations and we have created interfaces that represent our data. Through the next two levels, we will find better depth in our understanding around types. 
 
-First half, let's quickly recap through the most commonly used types in TypeScript.  
+First half, let's quickly recap through the most commonly used types in TypeScript. We have used these in our previous lessons and 
 
 #### Primitive Data Types in Typescript
 The commonly used primitive data types available in Typescript as described in the [official documentation](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#the-primitives-string-number-and-boolean) are 
@@ -10,6 +10,10 @@ The commonly used primitive data types available in Typescript as described in t
     Boolean : typeof instance === "boolean" | true or false
 
 JavaScript has two primitive values used to signal absent or uninitialized value: `null` and `undefined`. TypeScript has two corresponding types by the same names. 
+
+#### tsconfig.json
+
+Now we can use our tsconfig.json file to tell TypeScript to use specific options of the compiler. Let's see a some of the options that are useful for us.
 
 #### strictNullChecks
 You can enable the `strictNullChecks` compiler option to get strict null checks. Strict null checks are
@@ -43,7 +47,13 @@ These two compiler options allow us to write better type-safe code.
 
 ### The `any` type
 
-The `any` type in TypeScript is our biggest enemy when we are writing type-safe code. The more we use the `any` type, the lesser the compiler can help us avoid mistakes.
+In Typescript, unlike other strongly typed languages, we can opt out of the typesystem by using the type `any`. The `any` type in TypeScript is our biggest enemy when we are writing type-safe code. The more we use the `any` type, the lesser the compiler can help us avoid mistakes.
+
+### The never type
+
+We have seen the `never` type in our `useRef` lesson. The `never` type is used to express the type of values that never occur. For instance `never` is used as the return type of function that never returns. Or in the case of our `useRef` hook, the `never` type is used to express the type of the `current` property of the `React.RefObject` type. When we don't specify a type for your `useRef` hook, since we've initialized it with value `null`, the `useRef` hook will return a `React.MutableRefObject<null>` type. Now when we were accessing the `current` property of the `React.RefObject`, we got a `never` type error. This is because the `current` property of the `React.RefObject` type is `null` and we can't access the `current` property of `null`. We solved this problem by explicitly specifying the type of the `ref`.
+
+In a nutshell `never` is used to specify something that never happens. In this case a ref of type null would never have a current value!
 
 ### Arrays
 
@@ -56,6 +66,5 @@ In the previous lessions, we have created our own interfaces to define the objec
 ### Compilation vs Interpretation
 
 Through this level, we will see how the compilation process helps us write a code that exhaustively handles all cases especially when we refactor our code either for building new features or for restructuring. 
-
 
 Now that we have had a recap of the types in TypeScript that we have already used, we will learn about more about the intricacies of the types in TypeScript through the remaining lessons of this level.

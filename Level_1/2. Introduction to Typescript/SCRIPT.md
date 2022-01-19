@@ -4,17 +4,17 @@ Typescript is a new programming language that is designed to be a superset of Ja
 
 ## Why use Typescript?
 
-Typescript Compiles to Javascript, therefore powering Javascript with the advantages of a compiled languages all the while allowing the use of Javascript's most powerful features.
+Typescript Compiles to Javascript, therefore powering Javascript with the advantages of a compiled language all the while allowing the use of Javascript's features.
 
-Using Typescript allows you to write code that is more readable, easier to maintain and extend, especially when working with large projects. The compiler will help reduce the number of runtime errors and make it easier to debug the any errors that may occur.
+Using Typescript allows you to write code that is more readable, easier to maintain and extend, especially when working with large projects. The compiler will help reduce the number of runtime errors and make it easier to debug any errors that may occur.
 
 It is considerably easier to refactor code when you have a compiled language, especially on large projects. The freedom of dynamic typing often leaves you with a lot of problems that can be avoided with a compiled language. 
 
-You can avoid many of the common runtime errors that can occur with dynamic typing by using the compiler. Phantom runtime errors like 'undefined is not a function' are very common in Javascript.
+You can avoid many of the common runtime errors that can occur with dynamic typing by using the compiler. Phantom runtime errors like 'undefined is not a function' is very common in Javascript.
 
 ## Compiling and Running Typescript
 
-You may already use `node` command to run javascript files. But what if you want to run typescript files?
+You already installed `node.js` in the previous lesson using which you can run javascript files. But what if you want to run typescript files?
 
 You'll need to install the typescript compiler first. You can simply run 
 
@@ -50,7 +50,7 @@ On top of these there is also the type `any` which is a type that can be anythin
 
     Object : typeof instance === "object" | {text: "Hello World", flag: true}
 
-In Typescript Objects are used to store a collection of key/value pairs of different types. You can use an interface to define the structure of an object.
+In Typescript, Objects are used to store a collection of key/value pairs of different types. You can use an interface to define the structure of an object.
 
 ```js
 interface Person {
@@ -90,6 +90,7 @@ interface Person {
     Array : typeof instance === "object" | ["Hello", "World"]
 
 Arrays in Typescript are quite straightforward. You use arrays to list of items. To declare an array you use the `[]` symbol. Arrays are stored as objects (key,value pairs) therefore, typeof array is an object. For example if you want to declare an array of strings you would write:
+
 ```js
 let myArray: string[] = ["Hello", "World"];
 ```
@@ -107,4 +108,4 @@ Here, typescript infers that the value of `y` is a string and therefore it can't
 
 
 
-You'll learn more about Typescript in-depth in later lessons. 
+You'll learn more about Typescript in later lessons. 

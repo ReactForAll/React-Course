@@ -1,10 +1,10 @@
 # CRA - The Create React App
 
-Welcome back! Now that you have you have your development environtment set up, let's create a React project so that you can start coding!
+Welcome back! Now that you have you have your development environment set up and you have a basic understanding of what Typescript is all about, let's create a React project so that you can start coding!
 
 The Create React App is an official tool that allows you to create a new React app with no build configuration. This allows you to quickly get started without working on a lot of configuration.
 
-To start a project using the Create React App, you can simply open your teminal and write the following command:
+To start a project using the Create React App, you can simply open your terminal and write the following command:
 
 ```
 npx create-react-app my-app --template typescript
@@ -64,7 +64,7 @@ Now you need to modify the generated tailwind.config.js file to specify the path
 content: ["./src/**/*.{js,jsx,ts,tsx}"]
 ```
 
-Now finally you can replace your the content in your `index.css` file with the following content:
+Now finally you can replace the content in your `index.css` file with the following content:
 
 ```css
 @tailwind base;
