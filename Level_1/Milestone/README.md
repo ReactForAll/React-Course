@@ -4,6 +4,8 @@ For all the input fields, that we've rendered, we've used a constant `type` prop
 
 As part of this milestone, you need to update the `formFields` array to add 2 more fields `Date of Birth` and `Phone Number`. You should use a relavant type for these 
 
+Make a component named `LabelledInput` that takes in a `label` and `fieldType` as props and renders the `label` and `input`.
+
 > You can check out the different input tags you could create [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
 > 
 ### Submission Guidelines
@@ -12,4 +14,7 @@ As part of this milestone, you need to update the `formFields` array to add 2 mo
 2. The `<input>` tags should be styled with TailwindCSS uniquely and creatively.
 3. The Final Output Should Look something like this:
 
-Image to be added
+
+<!-- Link Image Final "Output.png" -->
+
+![Final Output](./Final%20Output.png)

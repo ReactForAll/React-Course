@@ -1,0 +1,2 @@
+Until now, we've been building an app with a scope that stays strictly within the browser. All our data has resided in our browser and even our persistent storage was in the `localStorage` of the user's browser. In this lessong we'll learn to start using the `fetch` api to make our requests to a server which would hold the user's data. As you probably already know, this allows us to go beyond the scope of the browser and access our data over the internet.
+

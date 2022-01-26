@@ -2,6 +2,8 @@
 
 In the previous lessons, we've been using stateless functional React components to render our UI. Going forward, let's learn to use React states to make our components reactive. When I say Reactive, what I mean is changing the UI based on the user's actions! We use the React state to achieve this. 
 
+Currently our app only has a single screen. Let's use a state named `page` to switch between 2 different screens!
+
 In order to access the React state, we will use the `useState` hook that's available in React. You can import it as a named import like:
 
 ```js

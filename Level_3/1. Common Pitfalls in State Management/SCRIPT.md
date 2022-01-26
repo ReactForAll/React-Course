@@ -27,4 +27,4 @@ Whenever you update the state, you need to make sure that you use the `setState`
 setState(newValue)
 ```
 
-Even though trying to mutate the state might seem to work on some occasions, its mearly an illusion because once you start doing that all hell would break loose once your application gets bigger.
+Even though trying to mutate the state might seem to work on some occasions, its mearly an illusion because once you staq2  345 doing that all hell would break loose once your application gets bigger.

@@ -17,21 +17,37 @@ First off, we'd have to change our functions that we use to load and save forms.
 Since we don't have a way to list our available forms at the moment, let's take the first form in our `localStorage` to test our setup!
 
 ```js
-const getLocalForms = () => {
-  const localForms = localStorage.getItem("savedForms");
-  if (localForms) {
-    return JSON.parse(localForms);
-  }
-  return [];
+const getLocalForms: () => formData[] = () => {
+  const formsJSON = localStorage.getItem("savedForms");
+  return formsJSON ? JSON.parse(formsJSON) : [];
 };
 
-const getInitialState = () => {
-  const localForms = getLocalForms();
-  if (localForms.length > 0) {
-    return localForms[0];
+const intialState: () => formData = () => {
+  const forms = getLocalForms();
+  if (forms.length > 0) {
+    return forms[0];
   }
-  return { id: Number(new Date()), title: "", formFields: intialFormFields };
+  const newForm = {
+    id: Number(new Date()),
+    title: "Untitled Form",
+    formFields: initialFormFields,
+  };
+  saveForms([...forms, newForm]);
+  return newForm;
 };
+
+const saveForms = (updatedLocalForms: formData[]) => {
+  localStorage.setItem("savedForms", JSON.stringify(updatedLocalForms));
+};
+
+const saveFormData = (currentState: formData) => {
+  const localForms = getLocalForms();
+  const updatedLocalForms = localForms.map((form) =>
+    form.id === currentState.id ? currentState : form
+  );
+  saveForms(updatedLocalForms);
+};
+
 ```
 
 <!-- Actual Implementation for getInitialState -->

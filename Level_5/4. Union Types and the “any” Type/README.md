@@ -23,19 +23,33 @@ type Direction= "UP"|"DOWN"
 
 Defining a type like this gives you better type-safety than using an enum.
 
+## Discriminated unions
 
-### The “any” Type
-
-In typescript, you can use the `any` type to represent a variable that can hold any type of value. This needs to be avoided to the best of your ability if you want to take advantage of that type safety that typescript promises.
-
-To initialize a variable with the www`any` type, you can:
+Discriminated Unions open the door for creating much more precise union types. They allow you to create types that contain multiple types of objects, that are discriminated by a common attribute
 
 ```js
-let x: any;
-x = 3;
-x = "Hello";
-x = true;
+ interface Circle {
+    kind: "circle";
+    radius: number;
+  }
+   
+  interface Square {
+    kind: "square";
+    sideLength: number;
+  }
+   
+  type Shape = Circle | Square;
+
+  function getArea(shape: Shape) {
+    switch (shape.kind) {
+      case "circle":
+        return Math.PI * shape.radius ** 2;
+                          
+      case "square":
+        return shape.sideLength ** 2;
+                
+    }
+  }
 ```
 
-Here all assignments are successful since `x` is of type `any`
-
+Here the type `Shape` is discriminated by the property `kind`. You can see that Typescript is able to understand that the type of a `Shape` instance is either circle or square with an `if` or `switch` check. This allows you to make much more precise types and therefore build better type-safety in your projects.
