@@ -37,10 +37,6 @@ So if both of these are so similar, how exactly are they different?
 
 For modelling over objects, interfaces usually work best because Typescript can give us better error messages. However, there are a lot of cases where you may want to use the type annotation. For instance, you can make a type for a string that always follows a certain pattern.
 
-### Utility Types
-
-
-
 ### Template Strings Types
 
 ```js

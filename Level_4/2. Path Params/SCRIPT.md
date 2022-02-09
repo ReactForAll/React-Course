@@ -26,3 +26,5 @@ So let's replace our button to Open Form with an `<a>` tag that leads to the `/f
 We would also have to replace our button that uses `closeFormCB` to use an `a` tag instead!
 
 Great! The form that we saved in local storage can now be loaded based on the ID that we specified in the URL. 
+
+Extra Reading: https://blog.stoplight.io/crud-api-design?hs_amp=true#url-design-best-practices
