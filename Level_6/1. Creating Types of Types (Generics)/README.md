@@ -38,4 +38,42 @@ const people: Person[] = [
 const oldest = getOldest<Person>(people);
 ```
 
+### Utility Types
+
+TypeScript provides several utility types to facilitate common type transformations. These are also designed using Generics because they are designed to work with any type. An example of a utility type is the `Partial<Type>` type. It's defined as:
+
+```js
+type Partial<T> = {
+  [P in keyof T]?: T[P];
+};
+```
+
+Parital is used to create a type that has the same properties as the original type but with some of the properties removed. So, if we have a type like:
+
+```js
+type User = {
+  name: string;
+  age: number;
+  email: string;
+};
+```
+The `Partial<User>` type would be any type with one or more properties of the original type. For example all of the following types would be valid:
+
+```js
+type PartialUser = Partial<User>;
+type PartialUser1 = {
+  name: string;
+  age: number;
+};
+type PartialUser2 = {
+  email: string;
+};
+type PartialUser3 = {
+  name: string;
+  age: number;
+  email: string;
+};
+```
+
+You can learn more about utility types [here](https://www.typescriptlang.org/docs/handbook/utility-types.html).
 

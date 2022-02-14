@@ -1,0 +1,1 @@
+In this level we will learn how to use the `fetch` API to make requests to our backend server. This will allow us to go beyond the scope of the browser where we were using `localStorage` up until now.

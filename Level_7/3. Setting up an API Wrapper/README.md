@@ -1,0 +1,1 @@
+In this lesson, we will learn how to wrap the `fetch` API using a custom function that we can reuse across our application. This would improve our modularity and make our code more readable and maintainable.
