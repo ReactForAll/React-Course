@@ -13,7 +13,7 @@ You can use the following instructions to setup your development environment. Op
 You can install NVM on your Mac by running the following command:
 
 ```
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 ```
 
 #### For Ubuntu
@@ -22,7 +22,7 @@ On Ubuntu/WSL you can install NVM by running the following command:
 
 ```
     sudo apt-get install -y curl
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 ```
 
 #### All Users
