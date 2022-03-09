@@ -2,10 +2,10 @@ Similar to Path Parameters or Dynamic Paths, you can also read query parameters 
 
 ## useQueryParams Hook
 
-The useQueryParams hook in hookrouter allows you to read query parameters directly in your component
+The useQueryParams hook in raviger allows you to read query parameters directly in your component
 
 ```js
-import { useQueryParams } from 'hookrouter';
+import { useQueryParams } from 'raviger';
 
 const MyComponent = () => {
   const [queryParams] = useQueryParams();
