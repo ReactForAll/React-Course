@@ -6,7 +6,7 @@ Well there are 2 types of packages that you can use out of the box
 
 Some packages, for instance `raviger` which we've been using for routing has inbuilt type defenitions. This meant that we could simply install the package and start using it!
 
-Most others though don't have inbuilt type definitions. When this situation comes up, the first place to look is the `DefinitelyTyped` repository. A good example of a popular untyped package that `DefinitelyTyped` supports would be lodash. If you plan to use lodash, you can install it with `npm install react-copy-to-clipboard` and then install the type definitions with `npm install @types/react-copy-to-clipboard`.
+Most others though don't have inbuilt type definitions. When this situation comes up, the first place to look is the `DefinitelyTyped` repository. A good example of a popular untyped package that `DefinitelyTyped` supports would be react-copy-to-clipboard. If you plan to use react-copy-to-clipboard, you can install it with `npm install react-copy-to-clipboard` and then install the type definitions with `npm install @types/react-copy-to-clipboard`.
 
 If we install `react-copy-to-clipboard` and then try to use it, we'll get an error, because it doesn't have the Typescript Type defenitions! Thanks to the `DefenitelyTyped` repo we have the type definitions for `react-copy-to-clipboard` at `@types/react-copy-to-clipboard`.
 

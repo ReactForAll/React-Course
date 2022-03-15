@@ -1,6 +1,25 @@
 The `Web Accessibility Initiative - Accessible Rich Internet Applications` document contains techniques for building fully accessible JavaScript widgets. ARIA has been around for a while now, and many of the accessibilty features were later supported by HTML5 itself. The first rule of ARIA use is "If you can use a native HTML element or attribute with the semantics and behavior you require already built in, instead of re-purposing an element and adding an ARIA role, state or property to make it accessible, then do so."
 
+For example, there's an aria role for "progressbar", which is used to indicate the progress of a task. The progressbar role is used to indicate the progress of a task.
+
+```html
+<div role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+  50%
+</div>
+```
+
+But in HTML5, there's a `progress` element that can be used to indicate the progress of a task.
+
+```html
+<progress value="50" max="100"></progress>
+```
+
+So, the `progress` element is a native HTML5 element that can be used to indicate the progress of a task, and therefore you should prefer to use it over the `progressbar` aria role.
+
+You can read more about when to use ARIA roles and states [here](https://www.w3.org/TR/using-aria/#NOTES).
+
 Note that all aria-* HTML attributes are fully supported in JSX. Whereas most DOM properties and attributes in React are camelCased, these attributes should be hyphen-cased (also known as kebab-case, lisp-case, etc) as they are in plain HTML. For instance let's take an example of an `<input>` element for which we are not specifying a label with `htmlFor`. We can use `aria-label` to specify a label or use `aria-labelledby` where you can specify the id of the element that labels the `<input>` tag.
+
 
 ```tsx
 <input

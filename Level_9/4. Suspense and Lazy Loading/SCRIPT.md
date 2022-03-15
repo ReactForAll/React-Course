@@ -26,4 +26,20 @@ Another way to solve this is to use the `React.Suspense` component.
 
 To use this, we can wrap our `PreviewForm` component in a `React.Suspense` component.
 
+```js
 
+const suspenseFallback = (
+  <div className="flex justify-center items-center h-full">
+    <div className="spinner" />
+  </div>
+);
+
+const suspenseWrapper = (Component: any) => (props: any) =>
+  (
+    <React.Suspense fallback={suspenseFallback}>
+      <Component {...props} />
+    </React.Suspense>
+  );
+
+const Home = suspenseWrapper(React.lazy(() => import("../components/Home")));
+```

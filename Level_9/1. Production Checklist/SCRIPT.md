@@ -20,27 +20,4 @@ In order to set up Sentry for our React App, you can simply Sign Up for a free a
 
 We'll install `@sentry/react` and then use the DSN to configure Sentry.
 
-### Environment Variables
-
-Once you have your App deployed to Production, you need to make sure you separate your production environment from your development environment. You can do this by creating a `.env` file in your root directory. You can make a .env.production file and then use that to set the environment variables for your production environment.
-
-Once you've setup a variable in your `.env` file like:
-
-```
-REACT_APP_SENTRY_DSN=xyz
-```
-
-You can simply use the `REACT_APP_SENTRY_DSN` variable in your code like this:
-
-```tsx
-import { Sentry } from '@sentry/react';
-
-if (process.env.REACT_APP_SENTRY_DSN) {
-  Sentry.init({
-    dsn: process.env.REACT_APP_SENTRY_DSN,
-  });
-}
-```
-
-`.env.production`, `.env.development`, `.env.test`, and `.env.local` are all different files that you can use to set environment variables. You can read more about it [here](https://create-react-app.dev/docs/adding-custom-environment-variables/)
 

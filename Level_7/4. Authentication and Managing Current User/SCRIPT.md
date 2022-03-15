@@ -1,4 +1,28 @@
-Until now, we've used public APIs and Basic Authentication to make requests to the server. In this lesson let's learn a bit more about som of the better practices for Authentication. When we integrate REST APIs, the most common practice for Authentication is to use JWT Tokens or JSON Web Tokens.
+Until now, we've used public APIs and Basic Authentication to make requests to the server. In this lesson let's learn a bit more about som of the better practices for Authentication. When we integrate REST APIs, the most common practice for Authentication is to use Token based authentication.
+
+So how does token based authentication work?
+
+Token based authentication is a method in which the server generates a token that is then used to authenticate the user. The token is then sent to the client and the client rhwn uses the token to make requests to the server.
+We have a api at `/api/auth-token` that returns a token that we can use to authenticate our requests.
+
+Let's create a Login Page for our app.
+
+In order to use the token based authentication, we need to add the token to the Authorization header of our requests instead of Basic Authentication.
+
+```tsx
+const login = (username: string, password: string) => {
+    return request('/auth-token', 'POST', {
+        username,
+        password
+    });
+};
+
+const auth = 'Token ' + localStorage.getItem('token');
+
+```
+
+<!-- JSON Web Tokens - Optional -->
+
 
 So what is a JSON Web Token?
 

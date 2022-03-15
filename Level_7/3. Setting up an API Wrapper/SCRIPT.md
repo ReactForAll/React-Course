@@ -7,7 +7,7 @@ In order to make things more modular, let's create a wrapper function around our
 const API_BASE_URL = 'localhost:8000/api';
 
 // Takes URL, GET/POST/PUT/DELETE requests and payload and returns a promise
-const request = (endpoint, method = 'GET', payload = null) => {
+const request = async (endpoint, method = 'GET', payload = null) => {
     // Create a promise that returns the json response
     if(method === 'GET') {
         const requestParams = payload ? `?${Object.keys(payload).map(key => `${key}=${payload[key]}`).join('&')}` : '';
@@ -17,22 +17,25 @@ const request = (endpoint, method = 'GET', payload = null) => {
     }
     // Basic Auth
     const auth = 'Basic ' + btoa('username:password');
-    return fetch(url, {
-        method,
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': auth
-        },
-        body: payload ? JSON.stringify(payload) : null
-    }).then(response => {
+    try{
+        const response = fetch(url, {
+            method,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': auth
+            },
+            body: payload ? JSON.stringify(payload) : null
+        })
         if(response.ok) {
-            return response.json();
+            const json = await response.json();
+            return json
         } else {
-            return response.json().then(err => {
-                throw err;
-            });
+            const errorJson = await response.json();
+            throw Error(errorJson)
         }
-    });
+    } catch(error) {
+        return error
+    }
 };
 ```
 

@@ -1,0 +1,1 @@
+We've used basic authentication with some hard-coded credentials up until now. Let's learn some better practices for Authentication through this lesson

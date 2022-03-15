@@ -32,7 +32,7 @@ Now since our project is actually a Single Page Application, on top of which we'
 
 You can make a simple `netlify.toml` file in your project root directory with
 
-```yml
+```toml
 [[redirects]]
   from = "/*"
   to = "/index.html"

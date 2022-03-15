@@ -19,6 +19,6 @@ Reading through the issues section almost always give you a fair idea of how wel
 
 ### The Hooks attached to using Packages
 
-Even though packages often solve your problems, even if they were maintained up until the point you started using it, you'll still face issues if they stop maintaining the project and you become unable to upgrade your project. This is the reason why you always want to use packages that are hopefully going to be maintained going forward.
+Even though packages often solve your problems, even if they were maintained up until the point you started using it, you'll still face issues if they stop maintaining the project and you become unable to upgrade your project. This is the reason why you always want to use packages that are likely going to be maintained going forward.
 
 `react-dates` being unable to support React 17 is a good example of this. You can read about it more in this issue [react-dates#2105](https://github.com/react-dates/react-dates/issues/2105).
