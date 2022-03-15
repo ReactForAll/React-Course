@@ -1,6 +1,4 @@
-
-
-Now that we've covered the basics of React, let's use this new found knowledge to build a tool that can help us manage Tasks in a Kanban-style workflow.
+Now that we've covered the basics of React, let's use this new found knowledge to build a tool that can help us manage Tasks in a [Kanban](https://www.atlassian.com/agile/kanban)-style workflow.
 
 ### Introduction
 
