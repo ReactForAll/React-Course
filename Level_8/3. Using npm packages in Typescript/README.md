@@ -4,8 +4,8 @@ npm or Node Package Manager is actually built for javascript. So how do we use j
 
 Well there are 2 types of packages that you can use out of the box
 
-    Using packages that have the type definitions in the package itself
-    Use a package that has community-maintained type definitions. The DefinitelyTyped repository is a good place to look for these.
+ - Using packages that have the type definitions in the package itself
+ - Use a package that has community-maintained type definitions. The DefinitelyTyped repository is a good place to look for these.
 
 Some packages, for instance, raviger which we've been using for routing have inbuilt type definitions. This meant that we could simply install the package and start using it!
 
