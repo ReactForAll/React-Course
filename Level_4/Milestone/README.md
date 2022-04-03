@@ -7,7 +7,7 @@ For this milestone, you need to
 - Configure the router such that each quiz would have a public link for previewing it. `/preview/:formId`
 - Collect the user's answers into the state of the Preview Page.
 - Remove the `input` fields that allow editing the value/answer from the Form Builder Screen at `/form/:formId` and make the label of each question editable instead.
-- Create a dropdown to select the input type of new field being added.
+- Create a dropdown to select the input type of the new field being added.
 
 ### Submission Guidelines
 
