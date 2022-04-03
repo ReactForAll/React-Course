@@ -6,8 +6,8 @@ For Example:
 
 ```js
 function itemAt<T>(index: number, arr: T[]): T {
-    T result = arr[index]
-    return result;
+  const result: T = arr[index];
+  return result;
 }
 ```
 
