@@ -270,7 +270,7 @@ reportWebVitals();
 
 #### CRA PWA Template
 
-Alternatively, if you start with a fresh project and you want to build it as a PWA from the start, you can use the [CRA PWA template](
+Alternatively, if you start with a fresh project and you want to build it as a PWA from the start, you can use the [CRA PWA template](https://create-react-app.dev/docs/making-a-progressive-web-app/)
 
 ```
 npx create-react-app my-app --template pwa-typescript
