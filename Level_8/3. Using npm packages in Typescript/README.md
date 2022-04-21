@@ -17,6 +17,7 @@ We can simply install the type definitions with npm install @types/react-copy-to
 
 Let's implement the react-copy-to-clipboard package in our project to copy shareable links for a form with a single click.
 
+```typescript
 import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useState } from 'react';
@@ -41,5 +42,6 @@ export default function ShareForm({props}) {
         </div>
     );
 }
+```
 
 And there we have it! we've used a package to implement a copy-to-clipboard feature!
